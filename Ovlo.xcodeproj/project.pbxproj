@@ -1,0 +1,797 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		68EC6D302EFC0001009E99EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68EC6D2F2EFC0001009E99EE /* LaunchScreen.storyboard */; };
+		68EC6CD62ED4B7D7009E99EE /* SessionControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CCF2ED4B7D7009E99EE /* SessionControlViewModel.swift */; };
+		68EC6CD72ED4B7D7009E99EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CD12ED4B7D7009E99EE /* ContentView.swift */; };
+		68EC6CD82ED4B7D7009E99EE /* OvloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CD42ED4B7D7009E99EE /* OvloApp.swift */; };
+		68EC6CD92ED4B7D7009E99EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68EC6CD32ED4B7D7009E99EE /* Assets.xcassets */; };
+		68EC6CE92ED4B7F2009E99EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68EC6CE62ED4B7F2009E99EE /* Assets.xcassets */; };
+		68EC6CEA2ED4B7F2009E99EE /* BreathingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CDB2ED4B7F2009E99EE /* BreathingState.swift */; };
+		68EC6CEB2ED4B7F2009E99EE /* BreathingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CDF2ED4B7F2009E99EE /* BreathingViewModel.swift */; };
+		68EC6CED2ED4B7F2009E99EE /* HapticController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CDD2ED4B7F2009E99EE /* HapticController.swift */; };
+		68EC6CEE2ED4B7F2009E99EE /* BreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CE42ED4B7F2009E99EE /* BreathingView.swift */; };
+		68EC6CEF2ED4B7F2009E99EE /* BreathingEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CDA2ED4B7F2009E99EE /* BreathingEngine.swift */; };
+		68EC6CF02ED4B7F2009E99EE /* ClockProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CDC2ED4B7F2009E99EE /* ClockProtocol.swift */; };
+		68EC6CF12ED4B7F2009E99EE /* BreathingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CE12ED4B7F2009E99EE /* BreathingCircle.swift */; };
+		68EC6CF22ED4B7F2009E99EE /* OvloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CE72ED4B7F2009E99EE /* OvloApp.swift */; };
+		68EC6CF92ED4B816009E99EE /* WatchConnectivityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CF42ED4B816009E99EE /* WatchConnectivityProtocol.swift */; };
+		68EC6CFA2ED4B816009E99EE /* BreathingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CF62ED4B816009E99EE /* BreathingSession.swift */; };
+		68EC6CFB2ED4B816009E99EE /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CF32ED4B816009E99EE /* WatchConnectivityManager.swift */; };
+		68EC6CFC2ED4B816009E99EE /* WatchConnectivityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CF42ED4B816009E99EE /* WatchConnectivityProtocol.swift */; };
+		68EC6CFD2ED4B816009E99EE /* BreathingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CF62ED4B816009E99EE /* BreathingSession.swift */; };
+		68EC6CFE2ED4B816009E99EE /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CF32ED4B816009E99EE /* WatchConnectivityManager.swift */; };
+		68EC6D0C2ED4BBFE009E99EE /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D0B2ED4BBFE009E99EE /* StartView.swift */; };
+		68EC6D202ED4C000009E99EE /* BreathingEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D082ED4B83B009E99EE /* BreathingEngineTests.swift */; };
+		68EC6D212ED4C000009E99EE /* WatchConnectivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D092ED4B83B009E99EE /* WatchConnectivityTests.swift */; };
+		68EC6D222ED4C000009E99EE /* MockWatchConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CFF2ED4B83B009E99EE /* MockWatchConnectivity.swift */; };
+		68EC6D232ED4C000009E99EE /* TestClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D002ED4B83B009E99EE /* TestClock.swift */; };
+		68EC6D402ED5A000009E99EE /* BreathingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D412ED5A000009E99EE /* BreathingViewModelTests.swift */; };
+		68EC6D422ED5A000009E99EE /* UserJourneyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D432ED5A000009E99EE /* UserJourneyTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		68A7D77C2ED4B08F0013DB96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68A7D7652ED4B08E0013DB96 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68A7D7792ED4B08F0013DB96;
+			remoteInfo = OvloWatch;
+		};
+		68EC6D102ED4C000009E99EE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68A7D7652ED4B08E0013DB96 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68A7D7792ED4B08F0013DB96;
+			remoteInfo = OvloWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		68A7D78A2ED4B0900013DB96 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		68A7D76D2ED4B08F0013DB96 /* OvloPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = OvloPhone.app; path = "/Users/edd/Projects/Ovlo/Ovlo/build/Debug-iphoneos/OvloPhone.app"; sourceTree = "<absolute>"; };
+		68A7D77A2ED4B08F0013DB96 /* OvloWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = OvloWatch.app; path = "/Users/edd/Projects/Ovlo/Ovlo/build/Debug-watchos/OvloWatch.app"; sourceTree = "<absolute>"; };
+		68EC6CCF2ED4B7D7009E99EE /* SessionControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionControlViewModel.swift; sourceTree = "<group>"; };
+		68EC6CD12ED4B7D7009E99EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		68EC6CD32ED4B7D7009E99EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		68EC6CD42ED4B7D7009E99EE /* OvloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvloApp.swift; sourceTree = "<group>"; };
+		68EC6CDA2ED4B7F2009E99EE /* BreathingEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingEngine.swift; sourceTree = "<group>"; };
+		68EC6CDB2ED4B7F2009E99EE /* BreathingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingState.swift; sourceTree = "<group>"; };
+		68EC6CDC2ED4B7F2009E99EE /* ClockProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockProtocol.swift; sourceTree = "<group>"; };
+		68EC6CDD2ED4B7F2009E99EE /* HapticController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticController.swift; sourceTree = "<group>"; };
+		68EC6CDF2ED4B7F2009E99EE /* BreathingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingViewModel.swift; sourceTree = "<group>"; };
+		68EC6CE12ED4B7F2009E99EE /* BreathingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingCircle.swift; sourceTree = "<group>"; };
+		68EC6CE42ED4B7F2009E99EE /* BreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
+		68EC6CE62ED4B7F2009E99EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		68EC6CE72ED4B7F2009E99EE /* OvloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvloApp.swift; sourceTree = "<group>"; };
+		68EC6CF32ED4B816009E99EE /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
+		68EC6CF42ED4B816009E99EE /* WatchConnectivityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityProtocol.swift; sourceTree = "<group>"; };
+		68EC6CF62ED4B816009E99EE /* BreathingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingSession.swift; sourceTree = "<group>"; };
+		68EC6CFF2ED4B83B009E99EE /* MockWatchConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWatchConnectivity.swift; sourceTree = "<group>"; };
+		68EC6D002ED4B83B009E99EE /* TestClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestClock.swift; sourceTree = "<group>"; };
+		68EC6D082ED4B83B009E99EE /* BreathingEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingEngineTests.swift; sourceTree = "<group>"; };
+		68EC6D092ED4B83B009E99EE /* WatchConnectivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityTests.swift; sourceTree = "<group>"; };
+		68EC6D0B2ED4BBFE009E99EE /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		68EC6D412ED5A000009E99EE /* BreathingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingViewModelTests.swift; sourceTree = "<group>"; };
+		68EC6D432ED5A000009E99EE /* UserJourneyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJourneyTests.swift; sourceTree = "<group>"; };
+		68EC6D0E2ED4C000009E99EE /* OvloWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OvloWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		68EC6D2F2EFC0001009E99EE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		68A7D76A2ED4B08F0013DB96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68A7D7772ED4B08F0013DB96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68EC6D0B2ED4C000009E99EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		68A7D7642ED4B08E0013DB96 = {
+			isa = PBXGroup;
+			children = (
+				68EC6CF82ED4B816009E99EE /* Shared */,
+				68EC6CD52ED4B7D7009E99EE /* OvloPhone */,
+				68EC6CE82ED4B7F2009E99EE /* OvloWatch */,
+				68EC6D0A2ED4B83B009E99EE /* OvloWatchTests */,
+				68EC6D0E2ED4C000009E99EE /* OvloWatchTests.xctest */,
+			);
+			sourceTree = "<group>";
+		};
+		68EC6CD02ED4B7D7009E99EE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6CCF2ED4B7D7009E99EE /* SessionControlViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		68EC6CD22ED4B7D7009E99EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6CD12ED4B7D7009E99EE /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		68EC6CD52ED4B7D7009E99EE /* OvloPhone */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6CD02ED4B7D7009E99EE /* ViewModels */,
+				68EC6CD22ED4B7D7009E99EE /* Views */,
+				68EC6CD32ED4B7D7009E99EE /* Assets.xcassets */,
+				68EC6CD42ED4B7D7009E99EE /* OvloApp.swift */,
+				68EC6D2F2EFC0001009E99EE /* LaunchScreen.storyboard */,
+			);
+			path = OvloPhone;
+			sourceTree = "<group>";
+		};
+		68EC6CDE2ED4B7F2009E99EE /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6CDA2ED4B7F2009E99EE /* BreathingEngine.swift */,
+				68EC6CDB2ED4B7F2009E99EE /* BreathingState.swift */,
+				68EC6CDC2ED4B7F2009E99EE /* ClockProtocol.swift */,
+				68EC6CDD2ED4B7F2009E99EE /* HapticController.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		68EC6CE02ED4B7F2009E99EE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6CDF2ED4B7F2009E99EE /* BreathingViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		68EC6CE32ED4B7F2009E99EE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6D0B2ED4BBFE009E99EE /* StartView.swift */,
+				68EC6CE12ED4B7F2009E99EE /* BreathingCircle.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		68EC6CE52ED4B7F2009E99EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6CE32ED4B7F2009E99EE /* Components */,
+				68EC6CE42ED4B7F2009E99EE /* BreathingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		68EC6CE82ED4B7F2009E99EE /* OvloWatch */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6CDE2ED4B7F2009E99EE /* Domain */,
+				68EC6CE02ED4B7F2009E99EE /* ViewModels */,
+				68EC6CE52ED4B7F2009E99EE /* Views */,
+				68EC6CE62ED4B7F2009E99EE /* Assets.xcassets */,
+				68EC6CE72ED4B7F2009E99EE /* OvloApp.swift */,
+			);
+			path = OvloWatch;
+			sourceTree = "<group>";
+		};
+		68EC6CF52ED4B816009E99EE /* Connectivity */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6CF32ED4B816009E99EE /* WatchConnectivityManager.swift */,
+				68EC6CF42ED4B816009E99EE /* WatchConnectivityProtocol.swift */,
+			);
+			path = Connectivity;
+			sourceTree = "<group>";
+		};
+		68EC6CF72ED4B816009E99EE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6CF62ED4B816009E99EE /* BreathingSession.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		68EC6CF82ED4B816009E99EE /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6CF52ED4B816009E99EE /* Connectivity */,
+				68EC6CF72ED4B816009E99EE /* Models */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		68EC6D012ED4B83B009E99EE /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6CFF2ED4B83B009E99EE /* MockWatchConnectivity.swift */,
+				68EC6D002ED4B83B009E99EE /* TestClock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		68EC6D0A2ED4B83B009E99EE /* OvloWatchTests */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6D012ED4B83B009E99EE /* Mocks */,
+				68EC6D082ED4B83B009E99EE /* BreathingEngineTests.swift */,
+				68EC6D412ED5A000009E99EE /* BreathingViewModelTests.swift */,
+				68EC6D432ED5A000009E99EE /* UserJourneyTests.swift */,
+				68EC6D092ED4B83B009E99EE /* WatchConnectivityTests.swift */,
+			);
+			path = OvloWatchTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		68A7D76C2ED4B08F0013DB96 /* OvloPhone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68A7D78B2ED4B0900013DB96 /* Build configuration list for PBXNativeTarget "OvloPhone" */;
+			buildPhases = (
+				68A7D7692ED4B08F0013DB96 /* Sources */,
+				68A7D76A2ED4B08F0013DB96 /* Frameworks */,
+				68A7D76B2ED4B08F0013DB96 /* Resources */,
+				68A7D78A2ED4B0900013DB96 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68A7D77D2ED4B08F0013DB96 /* PBXTargetDependency */,
+			);
+			name = OvloPhone;
+			packageProductDependencies = (
+			);
+			productName = OvloPhone;
+			productReference = 68A7D76D2ED4B08F0013DB96 /* OvloPhone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		68A7D7792ED4B08F0013DB96 /* OvloWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68A7D7872ED4B0900013DB96 /* Build configuration list for PBXNativeTarget "OvloWatch" */;
+			buildPhases = (
+				68A7D7762ED4B08F0013DB96 /* Sources */,
+				68A7D7772ED4B08F0013DB96 /* Frameworks */,
+				68A7D7782ED4B08F0013DB96 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OvloWatch;
+			packageProductDependencies = (
+			);
+			productName = OvloWatch;
+			productReference = 68A7D77A2ED4B08F0013DB96 /* OvloWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		68EC6D0D2ED4C000009E99EE /* OvloWatchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68EC6D142ED4C000009E99EE /* Build configuration list for PBXNativeTarget "OvloWatchTests" */;
+			buildPhases = (
+				68EC6D0A2ED4C000009E99EE /* Sources */,
+				68EC6D0B2ED4C000009E99EE /* Frameworks */,
+				68EC6D0C2ED4C000009E99EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68EC6D112ED4C000009E99EE /* PBXTargetDependency */,
+			);
+			name = OvloWatchTests;
+			packageProductDependencies = (
+			);
+			productName = OvloWatchTests;
+			productReference = 68EC6D0E2ED4C000009E99EE /* OvloWatchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		68A7D7652ED4B08E0013DB96 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					68A7D76C2ED4B08F0013DB96 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
+					68A7D7792ED4B08F0013DB96 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
+					68EC6D0D2ED4C000009E99EE = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = 68A7D7792ED4B08F0013DB96;
+					};
+				};
+			};
+			buildConfigurationList = 68A7D7682ED4B08E0013DB96 /* Build configuration list for PBXProject "Ovlo" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 68A7D7642ED4B08E0013DB96;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 68A7D7642ED4B08E0013DB96;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				68A7D76C2ED4B08F0013DB96 /* OvloPhone */,
+				68A7D7792ED4B08F0013DB96 /* OvloWatch */,
+				68EC6D0D2ED4C000009E99EE /* OvloWatchTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		68A7D76B2ED4B08F0013DB96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68EC6CD92ED4B7D7009E99EE /* Assets.xcassets in Resources */,
+				68EC6D302EFC0001009E99EE /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68A7D7782ED4B08F0013DB96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68EC6CE92ED4B7F2009E99EE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68EC6D0C2ED4C000009E99EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		68A7D7692ED4B08F0013DB96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68EC6CFC2ED4B816009E99EE /* WatchConnectivityProtocol.swift in Sources */,
+				68EC6CFD2ED4B816009E99EE /* BreathingSession.swift in Sources */,
+				68EC6CFE2ED4B816009E99EE /* WatchConnectivityManager.swift in Sources */,
+				68EC6CD62ED4B7D7009E99EE /* SessionControlViewModel.swift in Sources */,
+				68EC6CD72ED4B7D7009E99EE /* ContentView.swift in Sources */,
+				68EC6CD82ED4B7D7009E99EE /* OvloApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68A7D7762ED4B08F0013DB96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68EC6CF92ED4B816009E99EE /* WatchConnectivityProtocol.swift in Sources */,
+				68EC6CFA2ED4B816009E99EE /* BreathingSession.swift in Sources */,
+				68EC6CFB2ED4B816009E99EE /* WatchConnectivityManager.swift in Sources */,
+				68EC6CEA2ED4B7F2009E99EE /* BreathingState.swift in Sources */,
+				68EC6CEB2ED4B7F2009E99EE /* BreathingViewModel.swift in Sources */,
+				68EC6D0C2ED4BBFE009E99EE /* StartView.swift in Sources */,
+				68EC6CED2ED4B7F2009E99EE /* HapticController.swift in Sources */,
+				68EC6CEE2ED4B7F2009E99EE /* BreathingView.swift in Sources */,
+				68EC6CEF2ED4B7F2009E99EE /* BreathingEngine.swift in Sources */,
+				68EC6CF02ED4B7F2009E99EE /* ClockProtocol.swift in Sources */,
+				68EC6CF12ED4B7F2009E99EE /* BreathingCircle.swift in Sources */,
+				68EC6CF22ED4B7F2009E99EE /* OvloApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68EC6D0A2ED4C000009E99EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68EC6D202ED4C000009E99EE /* BreathingEngineTests.swift in Sources */,
+				68EC6D402ED5A000009E99EE /* BreathingViewModelTests.swift in Sources */,
+				68EC6D422ED5A000009E99EE /* UserJourneyTests.swift in Sources */,
+				68EC6D212ED4C000009E99EE /* WatchConnectivityTests.swift in Sources */,
+				68EC6D222ED4C000009E99EE /* MockWatchConnectivity.swift in Sources */,
+				68EC6D232ED4C000009E99EE /* TestClock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		68A7D77D2ED4B08F0013DB96 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68A7D7792ED4B08F0013DB96 /* OvloWatch */;
+			targetProxy = 68A7D77C2ED4B08F0013DB96 /* PBXContainerItemProxy */;
+		};
+		68EC6D112ED4C000009E99EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68A7D7792ED4B08F0013DB96 /* OvloWatch */;
+			targetProxy = 68EC6D102ED4C000009E99EE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		68A7D7852ED4B0900013DB96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = ANGUD7343N;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		68A7D7862ED4B0900013DB96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = ANGUD7343N;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		68A7D7882ED4B0900013DB96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ANGUD7343N;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Ovlo;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.eddmann.Ovlo;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eddmann.Ovlo.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Debug;
+		};
+		68A7D7892ED4B0900013DB96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ANGUD7343N;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Ovlo;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.eddmann.Ovlo;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eddmann.Ovlo.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Release;
+		};
+		68A7D78C2ED4B0900013DB96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ANGUD7343N;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Ovlo;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eddmann.Ovlo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		68A7D78D2ED4B0900013DB96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ANGUD7343N;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Ovlo;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eddmann.Ovlo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		68EC6D152ED4C000009E99EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ANGUD7343N;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eddmann.OvloTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OvloWatch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OvloWatch";
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Debug;
+		};
+		68EC6D162ED4C000009E99EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ANGUD7343N;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eddmann.OvloTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OvloWatch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OvloWatch";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		68A7D7682ED4B08E0013DB96 /* Build configuration list for PBXProject "Ovlo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68A7D7852ED4B0900013DB96 /* Debug */,
+				68A7D7862ED4B0900013DB96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68A7D7872ED4B0900013DB96 /* Build configuration list for PBXNativeTarget "OvloWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68A7D7882ED4B0900013DB96 /* Debug */,
+				68A7D7892ED4B0900013DB96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68A7D78B2ED4B0900013DB96 /* Build configuration list for PBXNativeTarget "OvloPhone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68A7D78C2ED4B0900013DB96 /* Debug */,
+				68A7D78D2ED4B0900013DB96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68EC6D142ED4C000009E99EE /* Build configuration list for PBXNativeTarget "OvloWatchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68EC6D152ED4C000009E99EE /* Debug */,
+				68EC6D162ED4C000009E99EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 68A7D7652ED4B08E0013DB96 /* Project object */;
+}
