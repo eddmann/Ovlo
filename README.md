@@ -12,6 +12,12 @@ Find calm.
 - **Progress tracking** - Visual progress ring shows session completion with countdown timer
 - **Dual-device control** - Start sessions directly on your watch or remotely from your iPhone
 
+## In Action
+
+<p align="center">
+  <img src="README/watch-demo.gif" width="250" alt="Watch app demo">
+</p>
+
 ## Screenshots
 
 ### Watch App
@@ -20,7 +26,6 @@ Find calm.
   <img src="README/watch-ready.png" width="180" alt="Watch - Ready to start">
   <img src="README/watch-inhale.png" width="180" alt="Watch - Inhaling">
   <img src="README/watch-exhale.png" width="180" alt="Watch - Exhaling">
-  
 </p>
 
 ### iOS Companion App
