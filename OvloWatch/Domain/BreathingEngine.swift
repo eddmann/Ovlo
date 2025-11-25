@@ -68,18 +68,10 @@ public actor BreathingEngine {
     // MARK: - Private Implementation
 
     private func runSession(_ session: BreathingSession) async {
-        let startTime = Date()
-        let sessionDuration = TimeInterval(session.durationSeconds)
         var cyclesCompleted = 0
         let maxCycles = session.totalCycles
 
         while isRunning && cyclesCompleted < maxCycles {
-            let elapsedTime = Date().timeIntervalSince(startTime)
-            let remainingTime = sessionDuration - elapsedTime
-            if remainingTime < session.cycleDuration {
-                break
-            }
-
             await runInhalePhase(duration: session.inhaleDuration)
             guard isRunning else { break }
             await runExhalePhase(duration: session.exhaleDuration)
