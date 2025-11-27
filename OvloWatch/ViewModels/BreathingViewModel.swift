@@ -32,6 +32,7 @@ public final class BreathingViewModel {
     // MARK: - Dependencies
     private let engine: BreathingEngine
     private let connectivity: WatchConnectivityProtocol
+    private let extendedRuntimeController: ExtendedRuntimeControllerProtocol?
 
     // MARK: - Private State
     private var currentSession: BreathingSession?
@@ -48,12 +49,15 @@ public final class BreathingViewModel {
     /// - Parameters:
     ///   - engine: The breathing engine
     ///   - connectivity: Watch connectivity manager
+    ///   - extendedRuntimeController: Controller for background execution (optional)
     public init(
         engine: BreathingEngine,
-        connectivity: WatchConnectivityProtocol
+        connectivity: WatchConnectivityProtocol,
+        extendedRuntimeController: ExtendedRuntimeControllerProtocol? = nil
     ) {
         self.engine = engine
         self.connectivity = connectivity
+        self.extendedRuntimeController = extendedRuntimeController
 
         connectivity.setMessageHandler { [weak self] message in
             guard let self = self else { return [:] }
@@ -75,6 +79,7 @@ public final class BreathingViewModel {
         elapsedSeconds = 0
         sessionStartTime = Date()
 
+        await extendedRuntimeController?.startSession()
         await engine.start(session: session)
         startProgressTracking()
     }
@@ -90,6 +95,7 @@ public final class BreathingViewModel {
 
     public func stopSession() async {
         await engine.stop()
+        await extendedRuntimeController?.invalidateSession()
         progressTask?.cancel()
         progressTask = nil
         sessionStartTime = nil
@@ -100,6 +106,7 @@ public final class BreathingViewModel {
     /// Completes the session early, showing the completion screen instead of returning to ready.
     public func completeSessionEarly() async {
         await engine.stop()
+        await extendedRuntimeController?.invalidateSession()
         progressTask?.cancel()
         progressTask = nil
         currentState = .completed
@@ -145,6 +152,11 @@ public final class BreathingViewModel {
             for await state in stream {
                 await MainActor.run {
                     self.currentState = state
+                }
+
+                // Invalidate extended runtime when session completes naturally
+                if state == .completed {
+                    await self.extendedRuntimeController?.invalidateSession()
                 }
             }
         }

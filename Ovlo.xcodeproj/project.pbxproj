@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		68EC6D302EFC0001009E99EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68EC6D2F2EFC0001009E99EE /* LaunchScreen.storyboard */; };
 		68EC6CD62ED4B7D7009E99EE /* SessionControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CCF2ED4B7D7009E99EE /* SessionControlViewModel.swift */; };
 		68EC6CD72ED4B7D7009E99EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CD12ED4B7D7009E99EE /* ContentView.swift */; };
 		68EC6CD82ED4B7D7009E99EE /* OvloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CD42ED4B7D7009E99EE /* OvloApp.swift */; };
@@ -32,8 +31,12 @@
 		68EC6D212ED4C000009E99EE /* WatchConnectivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D092ED4B83B009E99EE /* WatchConnectivityTests.swift */; };
 		68EC6D222ED4C000009E99EE /* MockWatchConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CFF2ED4B83B009E99EE /* MockWatchConnectivity.swift */; };
 		68EC6D232ED4C000009E99EE /* TestClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D002ED4B83B009E99EE /* TestClock.swift */; };
+		68EC6D302EFC0001009E99EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68EC6D2F2EFC0001009E99EE /* LaunchScreen.storyboard */; };
 		68EC6D402ED5A000009E99EE /* BreathingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D412ED5A000009E99EE /* BreathingViewModelTests.swift */; };
 		68EC6D422ED5A000009E99EE /* UserJourneyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D432ED5A000009E99EE /* UserJourneyTests.swift */; };
+		68EC6D502EFC1001009E99EE /* ExtendedRuntimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D512EFC1001009E99EE /* ExtendedRuntimeController.swift */; };
+		68EC6D522EFC1001009E99EE /* ExtendedRuntimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D532EFC1001009E99EE /* ExtendedRuntimeTests.swift */; };
+		68F00AD02ED8BC5800243E08 /* OvloWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 68F00ACE2ED8BBFE00243E08 /* OvloWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,13 @@
 			remoteGlobalIDString = 68A7D7792ED4B08F0013DB96;
 			remoteInfo = OvloWatch;
 		};
+		68F00AD12ED8BC5800243E08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68A7D7652ED4B08E0013DB96 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68A7D7792ED4B08F0013DB96;
+			remoteInfo = OvloWatch;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,6 +70,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
+				68F00AD02ED8BC5800243E08 /* OvloWatch.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,8 +78,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		68A7D76D2ED4B08F0013DB96 /* OvloPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = OvloPhone.app; path = "/Users/edd/Projects/Ovlo/Ovlo/build/Debug-iphoneos/OvloPhone.app"; sourceTree = "<absolute>"; };
-		68A7D77A2ED4B08F0013DB96 /* OvloWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = OvloWatch.app; path = "/Users/edd/Projects/Ovlo/Ovlo/build/Debug-watchos/OvloWatch.app"; sourceTree = "<absolute>"; };
 		68EC6CCF2ED4B7D7009E99EE /* SessionControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionControlViewModel.swift; sourceTree = "<group>"; };
 		68EC6CD12ED4B7D7009E99EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		68EC6CD32ED4B7D7009E99EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,10 +99,16 @@
 		68EC6D082ED4B83B009E99EE /* BreathingEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingEngineTests.swift; sourceTree = "<group>"; };
 		68EC6D092ED4B83B009E99EE /* WatchConnectivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityTests.swift; sourceTree = "<group>"; };
 		68EC6D0B2ED4BBFE009E99EE /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
-		68EC6D412ED5A000009E99EE /* BreathingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingViewModelTests.swift; sourceTree = "<group>"; };
-		68EC6D432ED5A000009E99EE /* UserJourneyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJourneyTests.swift; sourceTree = "<group>"; };
 		68EC6D0E2ED4C000009E99EE /* OvloWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OvloWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		68EC6D2F2EFC0001009E99EE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		68EC6D412ED5A000009E99EE /* BreathingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingViewModelTests.swift; sourceTree = "<group>"; };
+		68EC6D432ED5A000009E99EE /* UserJourneyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJourneyTests.swift; sourceTree = "<group>"; };
+		68EC6D512EFC1001009E99EE /* ExtendedRuntimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedRuntimeController.swift; sourceTree = "<group>"; };
+		68EC6D532EFC1001009E99EE /* ExtendedRuntimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedRuntimeTests.swift; sourceTree = "<group>"; };
+		68F00ACD2ED8BBFE00243E08 /* OvloPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OvloPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		68F00ACE2ED8BBFE00243E08 /* OvloWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OvloWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		68F00AD32ED8BCAB00243E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		68F00AD42ED8BCF100243E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +144,9 @@
 				68EC6CE82ED4B7F2009E99EE /* OvloWatch */,
 				68EC6D0A2ED4B83B009E99EE /* OvloWatchTests */,
 				68EC6D0E2ED4C000009E99EE /* OvloWatchTests.xctest */,
+				68F00ACD2ED8BBFE00243E08 /* OvloPhone.app */,
+				68F00ACE2ED8BBFE00243E08 /* OvloWatch.app */,
+				68F00ACF2ED8BC5800243E08 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +169,7 @@
 		68EC6CD52ED4B7D7009E99EE /* OvloPhone */ = {
 			isa = PBXGroup;
 			children = (
+				68F00AD42ED8BCF100243E08 /* Info.plist */,
 				68EC6CD02ED4B7D7009E99EE /* ViewModels */,
 				68EC6CD22ED4B7D7009E99EE /* Views */,
 				68EC6CD32ED4B7D7009E99EE /* Assets.xcassets */,
@@ -166,6 +185,7 @@
 				68EC6CDA2ED4B7F2009E99EE /* BreathingEngine.swift */,
 				68EC6CDB2ED4B7F2009E99EE /* BreathingState.swift */,
 				68EC6CDC2ED4B7F2009E99EE /* ClockProtocol.swift */,
+				68EC6D512EFC1001009E99EE /* ExtendedRuntimeController.swift */,
 				68EC6CDD2ED4B7F2009E99EE /* HapticController.swift */,
 			);
 			path = Domain;
@@ -200,6 +220,7 @@
 		68EC6CE82ED4B7F2009E99EE /* OvloWatch */ = {
 			isa = PBXGroup;
 			children = (
+				68F00AD32ED8BCAB00243E08 /* Info.plist */,
 				68EC6CDE2ED4B7F2009E99EE /* Domain */,
 				68EC6CE02ED4B7F2009E99EE /* ViewModels */,
 				68EC6CE52ED4B7F2009E99EE /* Views */,
@@ -250,10 +271,18 @@
 				68EC6D012ED4B83B009E99EE /* Mocks */,
 				68EC6D082ED4B83B009E99EE /* BreathingEngineTests.swift */,
 				68EC6D412ED5A000009E99EE /* BreathingViewModelTests.swift */,
+				68EC6D532EFC1001009E99EE /* ExtendedRuntimeTests.swift */,
 				68EC6D432ED5A000009E99EE /* UserJourneyTests.swift */,
 				68EC6D092ED4B83B009E99EE /* WatchConnectivityTests.swift */,
 			);
 			path = OvloWatchTests;
+			sourceTree = "<group>";
+		};
+		68F00ACF2ED8BC5800243E08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,12 +301,13 @@
 			);
 			dependencies = (
 				68A7D77D2ED4B08F0013DB96 /* PBXTargetDependency */,
+				68F00AD22ED8BC5800243E08 /* PBXTargetDependency */,
 			);
 			name = OvloPhone;
 			packageProductDependencies = (
 			);
 			productName = OvloPhone;
-			productReference = 68A7D76D2ED4B08F0013DB96 /* OvloPhone.app */;
+			productReference = 68F00ACD2ED8BBFE00243E08 /* OvloPhone.app */;
 			productType = "com.apple.product-type.application";
 		};
 		68A7D7792ED4B08F0013DB96 /* OvloWatch */ = {
@@ -296,7 +326,7 @@
 			packageProductDependencies = (
 			);
 			productName = OvloWatch;
-			productReference = 68A7D77A2ED4B08F0013DB96 /* OvloWatch.app */;
+			productReference = 68F00ACE2ED8BBFE00243E08 /* OvloWatch.app */;
 			productType = "com.apple.product-type.application";
 		};
 		68EC6D0D2ED4C000009E99EE /* OvloWatchTests */ = {
@@ -414,6 +444,7 @@
 				68EC6CEB2ED4B7F2009E99EE /* BreathingViewModel.swift in Sources */,
 				68EC6D0C2ED4BBFE009E99EE /* StartView.swift in Sources */,
 				68EC6CED2ED4B7F2009E99EE /* HapticController.swift in Sources */,
+				68EC6D502EFC1001009E99EE /* ExtendedRuntimeController.swift in Sources */,
 				68EC6CEE2ED4B7F2009E99EE /* BreathingView.swift in Sources */,
 				68EC6CEF2ED4B7F2009E99EE /* BreathingEngine.swift in Sources */,
 				68EC6CF02ED4B7F2009E99EE /* ClockProtocol.swift in Sources */,
@@ -428,6 +459,7 @@
 			files = (
 				68EC6D202ED4C000009E99EE /* BreathingEngineTests.swift in Sources */,
 				68EC6D402ED5A000009E99EE /* BreathingViewModelTests.swift in Sources */,
+				68EC6D522EFC1001009E99EE /* ExtendedRuntimeTests.swift in Sources */,
 				68EC6D422ED5A000009E99EE /* UserJourneyTests.swift in Sources */,
 				68EC6D212ED4C000009E99EE /* WatchConnectivityTests.swift in Sources */,
 				68EC6D222ED4C000009E99EE /* MockWatchConnectivity.swift in Sources */,
@@ -447,6 +479,11 @@
 			isa = PBXTargetDependency;
 			target = 68A7D7792ED4B08F0013DB96 /* OvloWatch */;
 			targetProxy = 68EC6D102ED4C000009E99EE /* PBXContainerItemProxy */;
+		};
+		68F00AD22ED8BC5800243E08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68A7D7792ED4B08F0013DB96 /* OvloWatch */;
+			targetProxy = 68F00AD12ED8BC5800243E08 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -577,14 +614,16 @@
 				DEVELOPMENT_TEAM = ANGUD7343N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OvloWatch/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Ovlo;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKBackgroundModes = "self-care";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.eddmann.Ovlo;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eddmann.Ovlo.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -596,7 +635,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
 			};
 			name = Debug;
 		};
@@ -610,14 +649,16 @@
 				DEVELOPMENT_TEAM = ANGUD7343N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OvloWatch/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Ovlo;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKBackgroundModes = "self-care";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.eddmann.Ovlo;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eddmann.Ovlo.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -630,7 +671,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
 			};
 			name = Release;
 		};
@@ -644,18 +685,19 @@
 				DEVELOPMENT_TEAM = ANGUD7343N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OvloPhone/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Ovlo;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eddmann.Ovlo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -679,18 +721,19 @@
 				DEVELOPMENT_TEAM = ANGUD7343N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OvloPhone/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Ovlo;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eddmann.Ovlo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -724,7 +767,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OvloWatch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OvloWatch";
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
 			};
 			name = Debug;
 		};
@@ -748,7 +791,7 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OvloWatch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OvloWatch";
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
 			};
 			name = Release;
 		};
