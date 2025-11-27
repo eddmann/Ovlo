@@ -44,13 +44,17 @@ public actor BreathingEngine {
 
     // MARK: - Public API
 
-    public func start(session: BreathingSession) {
+    public func start(session: BreathingSession) async {
         stop()
         isRunning = true
         currentState = .ready
 
+        // Play the first haptic immediately before task scheduling to ensure
+        // it fires reliably (fixes race condition on initial breathing phase)
+        await hapticController.playPhaseFeedback()
+
         runTask = Task {
-            await runSession(session)
+            await runSession(session, isFirstHapticPlayed: true)
         }
     }
 
@@ -67,12 +71,14 @@ public actor BreathingEngine {
 
     // MARK: - Private Implementation
 
-    private func runSession(_ session: BreathingSession) async {
+    private func runSession(_ session: BreathingSession, isFirstHapticPlayed: Bool) async {
         var cyclesCompleted = 0
         let maxCycles = session.totalCycles
 
         while isRunning && cyclesCompleted < maxCycles {
-            await runInhalePhase(duration: session.inhaleDuration)
+            // Skip haptic on first inhale if already played in start()
+            let skipHaptic = (cyclesCompleted == 0) && isFirstHapticPlayed
+            await runInhalePhase(duration: session.inhaleDuration, skipHaptic: skipHaptic)
             guard isRunning else { break }
             await runExhalePhase(duration: session.exhaleDuration)
 
@@ -86,8 +92,10 @@ public actor BreathingEngine {
         }
     }
 
-    private func runInhalePhase(duration: TimeInterval) async {
-        await hapticController.playPhaseFeedback()
+    private func runInhalePhase(duration: TimeInterval, skipHaptic: Bool = false) async {
+        if !skipHaptic {
+            await hapticController.playPhaseFeedback()
+        }
 
         let steps = 60
         let stepDuration = duration / Double(steps)
