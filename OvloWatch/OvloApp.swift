@@ -11,9 +11,15 @@ struct OvloWatchApp: App {
     init() {
         let connectivity = WatchConnectivityManager()
         let engine = BreathingEngine()
+        #if os(watchOS)
+        let extendedRuntimeController = ExtendedRuntimeController()
+        #else
+        let extendedRuntimeController: ExtendedRuntimeControllerProtocol? = nil
+        #endif
         self.viewModel = BreathingViewModel(
             engine: engine,
-            connectivity: connectivity
+            connectivity: connectivity,
+            extendedRuntimeController: extendedRuntimeController
         )
 
         // Activate connectivity on launch
