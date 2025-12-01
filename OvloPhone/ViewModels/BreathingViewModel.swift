@@ -2,9 +2,9 @@ import Foundation
 import os
 import SwiftUI
 
-private let logger = Logger(subsystem: "com.ovlo.watch", category: "BreathingViewModel")
+private let logger = Logger(subsystem: "com.ovlo.phone", category: "BreathingViewModel")
 
-/// View model for the watch breathing interface.
+/// View model for the iOS breathing interface.
 ///
 /// Coordinates between:
 /// - BreathingEngine (domain logic)
@@ -30,7 +30,6 @@ public final class BreathingViewModel {
 
     // MARK: - Dependencies
     private let engine: BreathingEngine
-    private let extendedRuntimeController: ExtendedRuntimeControllerProtocol?
 
     // MARK: - Private State
     private var currentSession: BreathingSession?
@@ -45,14 +44,8 @@ public final class BreathingViewModel {
     /// Creates a new breathing view model.
     /// - Parameters:
     ///   - engine: The breathing engine
-    ///   - extendedRuntimeController: Controller for background execution (optional)
-    public init(
-        engine: BreathingEngine,
-        extendedRuntimeController: ExtendedRuntimeControllerProtocol? = nil
-    ) {
+    public init(engine: BreathingEngine) {
         self.engine = engine
-        self.extendedRuntimeController = extendedRuntimeController
-
         startStateObservation()
     }
 
@@ -64,7 +57,6 @@ public final class BreathingViewModel {
         elapsedSeconds = 0
         sessionStartTime = Date()
 
-        await extendedRuntimeController?.startSession()
         await engine.start(session: session)
         startProgressTracking()
     }
@@ -80,7 +72,6 @@ public final class BreathingViewModel {
 
     public func stopSession() async {
         await engine.stop()
-        await extendedRuntimeController?.invalidateSession()
         progressTask?.cancel()
         progressTask = nil
         sessionStartTime = nil
@@ -91,7 +82,6 @@ public final class BreathingViewModel {
     /// Completes the session early, showing the completion screen instead of returning to ready.
     public func completeSessionEarly() async {
         await engine.stop()
-        await extendedRuntimeController?.invalidateSession()
         progressTask?.cancel()
         progressTask = nil
         currentState = .completed
@@ -108,11 +98,6 @@ public final class BreathingViewModel {
             for await state in stream {
                 await MainActor.run {
                     self.currentState = state
-                }
-
-                // Invalidate extended runtime when session completes naturally
-                if state == .completed {
-                    await self.extendedRuntimeController?.invalidateSession()
                 }
             }
         }

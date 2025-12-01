@@ -1,9 +1,9 @@
 import XCTest
-@testable import OvloWatch
+@testable import OvloPhone
 
 /// Tests for BreathingViewModel - the coordination layer between UI and engine.
 ///
-/// These tests validate user-facing behaviors on the watch:
+/// These tests validate user-facing behaviors on iOS:
 /// - Starting sessions locally (tapping play)
 /// - Stopping sessions (returning to start screen)
 /// - Completing sessions early (swipe up gesture)

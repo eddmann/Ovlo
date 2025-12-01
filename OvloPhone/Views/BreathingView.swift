@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// Main view for the watchOS breathing exercise interface.
+/// Main view for the iOS breathing exercise interface.
 ///
 /// Displays either:
 /// - Start screen with duration picker (when ready)
@@ -35,7 +35,7 @@ struct BreathingView: View {
     private var breathingInterfaceView: some View {
         GeometryReader { geometry in
             let minDimension = min(geometry.size.width, geometry.size.height)
-            let circleSize = minDimension * 0.65
+            let circleSize = minDimension * 0.45
             let spacing = geometry.size.height * 0.02
 
             VStack(spacing: spacing) {
@@ -50,10 +50,10 @@ struct BreathingView: View {
                     exhaleDuration: viewModel.currentExhaleDuration
                 )
 
-                Spacer(minLength: viewModel.currentState.isActive ? 35 : nil)
+                Spacer()
 
                 Text(viewModel.currentState.displayText)
-                    .font(.footnote)
+                    .font(.title2)
                     .fontWeight(.medium)
                     .foregroundStyle(labelColor)
                     .animation(.easeInOut, value: viewModel.currentState)
@@ -63,20 +63,34 @@ struct BreathingView: View {
                 if viewModel.currentState == .completed {
                     Button(action: returnToStart) {
                         Text("Done")
-                            .font(.footnote)
+                            .font(.headline)
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 10)
+                            .frame(maxWidth: 200)
+                            .padding(.vertical, 14)
                             .background(Color.green)
-                            .cornerRadius(20)
+                            .cornerRadius(25)
                     }
                     .buttonStyle(.plain)
                     .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
+
+                Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        .background(
+            LinearGradient(
+                colors: [
+                    Color(red: 0.02, green: 0.08, blue: 0.18),
+                    Color(red: 0.04, green: 0.20, blue: 0.35),
+                    Color(red: 0.05, green: 0.35, blue: 0.45)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
+        )
         .gesture(
             viewModel.currentState.isActive ?
                 DragGesture(minimumDistance: 50)

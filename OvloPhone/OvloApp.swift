@@ -1,24 +1,20 @@
 import SwiftUI
 
-/// Main entry point for the Ovlo iOS companion app.
+/// Main entry point for the Ovlo iOS app.
 ///
-/// This app allows users to remotely control breathing sessions
-/// on their Apple Watch via WatchConnectivity.
+/// This app runs breathing exercises directly on the iPhone.
 @main
 struct OvloiOSApp: App {
-    @State private var viewModel: SessionControlViewModel
+    @State private var viewModel: BreathingViewModel
 
     init() {
-        let connectivity = WatchConnectivityManager()
-        self.viewModel = SessionControlViewModel(connectivity: connectivity)
-
-        // Activate connectivity on launch
-        connectivity.activate()
+        let engine = BreathingEngine(hapticController: HapticController())
+        self.viewModel = BreathingViewModel(engine: engine)
     }
 
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: viewModel)
+            BreathingView(viewModel: viewModel)
         }
     }
 }

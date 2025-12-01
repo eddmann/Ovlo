@@ -7,8 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		68EC6CD62ED4B7D7009E99EE /* SessionControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CCF2ED4B7D7009E99EE /* SessionControlViewModel.swift */; };
-		68EC6CD72ED4B7D7009E99EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CD12ED4B7D7009E99EE /* ContentView.swift */; };
+		68EC6DBBBB00001 /* BreathingEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6DBBBB00011 /* BreathingEngineTests.swift */; };
+		68EC6DBBBB00002 /* BreathingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6DBBBB00012 /* BreathingViewModelTests.swift */; };
+		68EC6DBBBB00003 /* UserJourneyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6DBBBB00013 /* UserJourneyTests.swift */; };
+		68EC6DBBBB00004 /* TestClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6DBBBB00014 /* TestClock.swift */; };
+		68EC6CAAAA00011 /* BreathingEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CAAAA00002 /* BreathingEngine.swift */; };
+		68EC6CAAAA00012 /* BreathingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CAAAA00003 /* BreathingState.swift */; };
+		68EC6CAAAA00013 /* ClockProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CAAAA00004 /* ClockProtocol.swift */; };
+		68EC6CAAAA00014 /* HapticController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CAAAA00005 /* HapticController.swift */; };
+		68EC6CAAAA00015 /* BreathingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CAAAA00006 /* BreathingViewModel.swift */; };
+		68EC6CAAAA00016 /* BreathingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CAAAA00008 /* BreathingCircle.swift */; };
+		68EC6CAAAA00017 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CAAAA00009 /* StartView.swift */; };
+		68EC6CAAAA00018 /* BreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CAAAA00010 /* BreathingView.swift */; };
 		68EC6CD82ED4B7D7009E99EE /* OvloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CD42ED4B7D7009E99EE /* OvloApp.swift */; };
 		68EC6CD92ED4B7D7009E99EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68EC6CD32ED4B7D7009E99EE /* Assets.xcassets */; };
 		68EC6CE92ED4B7F2009E99EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68EC6CE62ED4B7F2009E99EE /* Assets.xcassets */; };
@@ -20,16 +30,10 @@
 		68EC6CF02ED4B7F2009E99EE /* ClockProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CDC2ED4B7F2009E99EE /* ClockProtocol.swift */; };
 		68EC6CF12ED4B7F2009E99EE /* BreathingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CE12ED4B7F2009E99EE /* BreathingCircle.swift */; };
 		68EC6CF22ED4B7F2009E99EE /* OvloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CE72ED4B7F2009E99EE /* OvloApp.swift */; };
-		68EC6CF92ED4B816009E99EE /* WatchConnectivityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CF42ED4B816009E99EE /* WatchConnectivityProtocol.swift */; };
 		68EC6CFA2ED4B816009E99EE /* BreathingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CF62ED4B816009E99EE /* BreathingSession.swift */; };
-		68EC6CFB2ED4B816009E99EE /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CF32ED4B816009E99EE /* WatchConnectivityManager.swift */; };
-		68EC6CFC2ED4B816009E99EE /* WatchConnectivityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CF42ED4B816009E99EE /* WatchConnectivityProtocol.swift */; };
 		68EC6CFD2ED4B816009E99EE /* BreathingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CF62ED4B816009E99EE /* BreathingSession.swift */; };
-		68EC6CFE2ED4B816009E99EE /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CF32ED4B816009E99EE /* WatchConnectivityManager.swift */; };
 		68EC6D0C2ED4BBFE009E99EE /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D0B2ED4BBFE009E99EE /* StartView.swift */; };
 		68EC6D202ED4C000009E99EE /* BreathingEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D082ED4B83B009E99EE /* BreathingEngineTests.swift */; };
-		68EC6D212ED4C000009E99EE /* WatchConnectivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D092ED4B83B009E99EE /* WatchConnectivityTests.swift */; };
-		68EC6D222ED4C000009E99EE /* MockWatchConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CFF2ED4B83B009E99EE /* MockWatchConnectivity.swift */; };
 		68EC6D232ED4C000009E99EE /* TestClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D002ED4B83B009E99EE /* TestClock.swift */; };
 		68EC6D302EFC0001009E99EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68EC6D2F2EFC0001009E99EE /* LaunchScreen.storyboard */; };
 		68EC6D402ED5A000009E99EE /* BreathingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D412ED5A000009E99EE /* BreathingViewModelTests.swift */; };
@@ -61,6 +65,13 @@
 			remoteGlobalIDString = 68A7D7792ED4B08F0013DB96;
 			remoteInfo = OvloWatch;
 		};
+		68EC6DBBBB00030 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68A7D7652ED4B08E0013DB96 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68A7D76C2ED4B08F0013DB96;
+			remoteInfo = OvloPhone;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,8 +89,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		68EC6CCF2ED4B7D7009E99EE /* SessionControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionControlViewModel.swift; sourceTree = "<group>"; };
-		68EC6CD12ED4B7D7009E99EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		68EC6CAAAA00002 /* BreathingEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingEngine.swift; sourceTree = "<group>"; };
+		68EC6CAAAA00003 /* BreathingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingState.swift; sourceTree = "<group>"; };
+		68EC6CAAAA00004 /* ClockProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockProtocol.swift; sourceTree = "<group>"; };
+		68EC6CAAAA00005 /* HapticController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticController.swift; sourceTree = "<group>"; };
+		68EC6CAAAA00006 /* BreathingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingViewModel.swift; sourceTree = "<group>"; };
+		68EC6CAAAA00008 /* BreathingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingCircle.swift; sourceTree = "<group>"; };
+		68EC6CAAAA00009 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		68EC6CAAAA00010 /* BreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
 		68EC6CD32ED4B7D7009E99EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68EC6CD42ED4B7D7009E99EE /* OvloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvloApp.swift; sourceTree = "<group>"; };
 		68EC6CDA2ED4B7F2009E99EE /* BreathingEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingEngine.swift; sourceTree = "<group>"; };
@@ -91,13 +108,9 @@
 		68EC6CE42ED4B7F2009E99EE /* BreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
 		68EC6CE62ED4B7F2009E99EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68EC6CE72ED4B7F2009E99EE /* OvloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvloApp.swift; sourceTree = "<group>"; };
-		68EC6CF32ED4B816009E99EE /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
-		68EC6CF42ED4B816009E99EE /* WatchConnectivityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityProtocol.swift; sourceTree = "<group>"; };
 		68EC6CF62ED4B816009E99EE /* BreathingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingSession.swift; sourceTree = "<group>"; };
-		68EC6CFF2ED4B83B009E99EE /* MockWatchConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWatchConnectivity.swift; sourceTree = "<group>"; };
 		68EC6D002ED4B83B009E99EE /* TestClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestClock.swift; sourceTree = "<group>"; };
 		68EC6D082ED4B83B009E99EE /* BreathingEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingEngineTests.swift; sourceTree = "<group>"; };
-		68EC6D092ED4B83B009E99EE /* WatchConnectivityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityTests.swift; sourceTree = "<group>"; };
 		68EC6D0B2ED4BBFE009E99EE /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		68EC6D0E2ED4C000009E99EE /* OvloWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OvloWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		68EC6D2F2EFC0001009E99EE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -109,6 +122,11 @@
 		68F00ACE2ED8BBFE00243E08 /* OvloWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OvloWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F00AD32ED8BCAB00243E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		68F00AD42ED8BCF100243E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		68EC6DBBBB00010 /* OvloPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OvloPhoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		68EC6DBBBB00011 /* BreathingEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingEngineTests.swift; sourceTree = "<group>"; };
+		68EC6DBBBB00012 /* BreathingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingViewModelTests.swift; sourceTree = "<group>"; };
+		68EC6DBBBB00013 /* UserJourneyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJourneyTests.swift; sourceTree = "<group>"; };
+		68EC6DBBBB00014 /* TestClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestClock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +151,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		68EC6DBBBB00020 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -142,7 +167,9 @@
 				68EC6CF82ED4B816009E99EE /* Shared */,
 				68EC6CD52ED4B7D7009E99EE /* OvloPhone */,
 				68EC6CE82ED4B7F2009E99EE /* OvloWatch */,
+				68EC6DBBBB00016 /* OvloPhoneTests */,
 				68EC6D0A2ED4B83B009E99EE /* OvloWatchTests */,
+				68EC6DBBBB00010 /* OvloPhoneTests.xctest */,
 				68EC6D0E2ED4C000009E99EE /* OvloWatchTests.xctest */,
 				68F00ACD2ED8BBFE00243E08 /* OvloPhone.app */,
 				68F00ACE2ED8BBFE00243E08 /* OvloWatch.app */,
@@ -150,18 +177,39 @@
 			);
 			sourceTree = "<group>";
 		};
+		68EC6CAAAA00001 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6CAAAA00002 /* BreathingEngine.swift */,
+				68EC6CAAAA00003 /* BreathingState.swift */,
+				68EC6CAAAA00004 /* ClockProtocol.swift */,
+				68EC6CAAAA00005 /* HapticController.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		68EC6CD02ED4B7D7009E99EE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				68EC6CCF2ED4B7D7009E99EE /* SessionControlViewModel.swift */,
+				68EC6CAAAA00006 /* BreathingViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		68EC6CAAAA00007 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6CAAAA00008 /* BreathingCircle.swift */,
+				68EC6CAAAA00009 /* StartView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		68EC6CD22ED4B7D7009E99EE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				68EC6CD12ED4B7D7009E99EE /* ContentView.swift */,
+				68EC6CAAAA00007 /* Components */,
+				68EC6CAAAA00010 /* BreathingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				68F00AD42ED8BCF100243E08 /* Info.plist */,
+				68EC6CAAAA00001 /* Domain */,
 				68EC6CD02ED4B7D7009E99EE /* ViewModels */,
 				68EC6CD22ED4B7D7009E99EE /* Views */,
 				68EC6CD32ED4B7D7009E99EE /* Assets.xcassets */,
@@ -230,15 +279,6 @@
 			path = OvloWatch;
 			sourceTree = "<group>";
 		};
-		68EC6CF52ED4B816009E99EE /* Connectivity */ = {
-			isa = PBXGroup;
-			children = (
-				68EC6CF32ED4B816009E99EE /* WatchConnectivityManager.swift */,
-				68EC6CF42ED4B816009E99EE /* WatchConnectivityProtocol.swift */,
-			);
-			path = Connectivity;
-			sourceTree = "<group>";
-		};
 		68EC6CF72ED4B816009E99EE /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,7 +290,6 @@
 		68EC6CF82ED4B816009E99EE /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				68EC6CF52ED4B816009E99EE /* Connectivity */,
 				68EC6CF72ED4B816009E99EE /* Models */,
 			);
 			path = Shared;
@@ -259,7 +298,6 @@
 		68EC6D012ED4B83B009E99EE /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				68EC6CFF2ED4B83B009E99EE /* MockWatchConnectivity.swift */,
 				68EC6D002ED4B83B009E99EE /* TestClock.swift */,
 			);
 			path = Mocks;
@@ -273,7 +311,6 @@
 				68EC6D412ED5A000009E99EE /* BreathingViewModelTests.swift */,
 				68EC6D532EFC1001009E99EE /* ExtendedRuntimeTests.swift */,
 				68EC6D432ED5A000009E99EE /* UserJourneyTests.swift */,
-				68EC6D092ED4B83B009E99EE /* WatchConnectivityTests.swift */,
 			);
 			path = OvloWatchTests;
 			sourceTree = "<group>";
@@ -283,6 +320,25 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		68EC6DBBBB00015 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6DBBBB00014 /* TestClock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		68EC6DBBBB00016 /* OvloPhoneTests */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6DBBBB00015 /* Mocks */,
+				68EC6DBBBB00011 /* BreathingEngineTests.swift */,
+				68EC6DBBBB00012 /* BreathingViewModelTests.swift */,
+				68EC6DBBBB00013 /* UserJourneyTests.swift */,
+			);
+			path = OvloPhoneTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +405,26 @@
 			productReference = 68EC6D0E2ED4C000009E99EE /* OvloWatchTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		68EC6DBBBB00017 /* OvloPhoneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68EC6DBBBB00040 /* Build configuration list for PBXNativeTarget "OvloPhoneTests" */;
+			buildPhases = (
+				68EC6DBBBB00021 /* Sources */,
+				68EC6DBBBB00020 /* Frameworks */,
+				68EC6DBBBB00022 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68EC6DBBBB00031 /* PBXTargetDependency */,
+			);
+			name = OvloPhoneTests;
+			packageProductDependencies = (
+			);
+			productName = OvloPhoneTests;
+			productReference = 68EC6DBBBB00010 /* OvloPhoneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -369,6 +445,10 @@
 						CreatedOnToolsVersion = 26.0.1;
 						TestTargetID = 68A7D7792ED4B08F0013DB96;
 					};
+					68EC6DBBBB00017 = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = 68A7D76C2ED4B08F0013DB96;
+					};
 				};
 			};
 			buildConfigurationList = 68A7D7682ED4B08E0013DB96 /* Build configuration list for PBXProject "Ovlo" */;
@@ -388,6 +468,7 @@
 				68A7D76C2ED4B08F0013DB96 /* OvloPhone */,
 				68A7D7792ED4B08F0013DB96 /* OvloWatch */,
 				68EC6D0D2ED4C000009E99EE /* OvloWatchTests */,
+				68EC6DBBBB00017 /* OvloPhoneTests */,
 			);
 		};
 /* End PBXProject section */
@@ -417,6 +498,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		68EC6DBBBB00022 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -424,11 +512,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68EC6CFC2ED4B816009E99EE /* WatchConnectivityProtocol.swift in Sources */,
 				68EC6CFD2ED4B816009E99EE /* BreathingSession.swift in Sources */,
-				68EC6CFE2ED4B816009E99EE /* WatchConnectivityManager.swift in Sources */,
-				68EC6CD62ED4B7D7009E99EE /* SessionControlViewModel.swift in Sources */,
-				68EC6CD72ED4B7D7009E99EE /* ContentView.swift in Sources */,
+				68EC6CAAAA00011 /* BreathingEngine.swift in Sources */,
+				68EC6CAAAA00012 /* BreathingState.swift in Sources */,
+				68EC6CAAAA00013 /* ClockProtocol.swift in Sources */,
+				68EC6CAAAA00014 /* HapticController.swift in Sources */,
+				68EC6CAAAA00015 /* BreathingViewModel.swift in Sources */,
+				68EC6CAAAA00016 /* BreathingCircle.swift in Sources */,
+				68EC6CAAAA00017 /* StartView.swift in Sources */,
+				68EC6CAAAA00018 /* BreathingView.swift in Sources */,
 				68EC6CD82ED4B7D7009E99EE /* OvloApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,9 +529,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68EC6CF92ED4B816009E99EE /* WatchConnectivityProtocol.swift in Sources */,
 				68EC6CFA2ED4B816009E99EE /* BreathingSession.swift in Sources */,
-				68EC6CFB2ED4B816009E99EE /* WatchConnectivityManager.swift in Sources */,
 				68EC6CEA2ED4B7F2009E99EE /* BreathingState.swift in Sources */,
 				68EC6CEB2ED4B7F2009E99EE /* BreathingViewModel.swift in Sources */,
 				68EC6D0C2ED4BBFE009E99EE /* StartView.swift in Sources */,
@@ -461,9 +551,18 @@
 				68EC6D402ED5A000009E99EE /* BreathingViewModelTests.swift in Sources */,
 				68EC6D522EFC1001009E99EE /* ExtendedRuntimeTests.swift in Sources */,
 				68EC6D422ED5A000009E99EE /* UserJourneyTests.swift in Sources */,
-				68EC6D212ED4C000009E99EE /* WatchConnectivityTests.swift in Sources */,
-				68EC6D222ED4C000009E99EE /* MockWatchConnectivity.swift in Sources */,
 				68EC6D232ED4C000009E99EE /* TestClock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68EC6DBBBB00021 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68EC6DBBBB00001 /* BreathingEngineTests.swift in Sources */,
+				68EC6DBBBB00002 /* BreathingViewModelTests.swift in Sources */,
+				68EC6DBBBB00003 /* UserJourneyTests.swift in Sources */,
+				68EC6DBBBB00004 /* TestClock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +583,11 @@
 			isa = PBXTargetDependency;
 			target = 68A7D7792ED4B08F0013DB96 /* OvloWatch */;
 			targetProxy = 68F00AD12ED8BC5800243E08 /* PBXContainerItemProxy */;
+		};
+		68EC6DBBBB00031 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68A7D76C2ED4B08F0013DB96 /* OvloPhone */;
+			targetProxy = 68EC6DBBBB00030 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -795,6 +899,53 @@
 			};
 			name = Release;
 		};
+		68EC6DBBBB00041 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ANGUD7343N;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eddmann.OvloPhoneTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OvloPhone.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OvloPhone";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+			};
+			name = Debug;
+		};
+		68EC6DBBBB00042 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ANGUD7343N;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eddmann.OvloPhoneTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OvloPhone.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OvloPhone";
+				VALIDATE_PRODUCT = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -830,6 +981,15 @@
 			buildConfigurations = (
 				68EC6D152ED4C000009E99EE /* Debug */,
 				68EC6D162ED4C000009E99EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68EC6DBBBB00040 /* Build configuration list for PBXNativeTarget "OvloPhoneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68EC6DBBBB00041 /* Debug */,
+				68EC6DBBBB00042 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

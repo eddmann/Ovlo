@@ -14,7 +14,6 @@ final class ExtendedRuntimeTests: XCTestCase {
     private var engine: BreathingEngine!
     private var testClock: TestClock!
     private var mockHaptics: MockHapticController!
-    private var mockConnectivity: MockWatchConnectivity!
     private var mockRuntimeController: MockExtendedRuntimeController!
 
     // MARK: - Constants
@@ -27,7 +26,6 @@ final class ExtendedRuntimeTests: XCTestCase {
     override func setUp() async throws {
         testClock = TestClock()
         mockHaptics = MockHapticController()
-        mockConnectivity = MockWatchConnectivity()
         mockRuntimeController = MockExtendedRuntimeController()
 
         engine = BreathingEngine(
@@ -37,7 +35,6 @@ final class ExtendedRuntimeTests: XCTestCase {
 
         viewModel = BreathingViewModel(
             engine: engine,
-            connectivity: mockConnectivity,
             extendedRuntimeController: mockRuntimeController
         )
     }
@@ -48,7 +45,6 @@ final class ExtendedRuntimeTests: XCTestCase {
         engine = nil
         testClock = nil
         mockHaptics = nil
-        mockConnectivity = nil
         mockRuntimeController = nil
     }
 
@@ -60,25 +56,6 @@ final class ExtendedRuntimeTests: XCTestCase {
             await testClock.advance()
             try await Task.sleep(for: .milliseconds(1))
         }
-    }
-
-    /// Simulates iOS sending a start command to the watch.
-    private func sendIOSStartCommand(durationMinutes: Int) async throws {
-        let message: [String: Any] = [
-            ConnectivityMessageKey.command: ConnectivityCommand.start.rawValue,
-            ConnectivityMessageKey.duration: durationMinutes
-        ]
-        _ = mockConnectivity.simulateReceivingMessage(message)
-        try await Task.sleep(for: .milliseconds(50))
-    }
-
-    /// Simulates iOS sending a stop command to the watch.
-    private func sendIOSStopCommand() async throws {
-        let message: [String: Any] = [
-            ConnectivityMessageKey.command: ConnectivityCommand.stop.rawValue
-        ]
-        _ = mockConnectivity.simulateReceivingMessage(message)
-        try await Task.sleep(for: .milliseconds(50))
     }
 
     // MARK: - Background Execution When Session Starts
@@ -98,19 +75,6 @@ final class ExtendedRuntimeTests: XCTestCase {
 
         let isActive = await mockRuntimeController.isSessionActive
         XCTAssertTrue(isActive, "Background execution should be active")
-    }
-
-    func testIOSStartedSessionRequestsBackgroundExecution() async throws {
-        // === GIVEN: Watch is idle ===
-        let initialCount = await mockRuntimeController.startSessionCallCount
-        XCTAssertEqual(initialCount, 0)
-
-        // === WHEN: iOS sends start command ===
-        try await sendIOSStartCommand(durationMinutes: 5)
-
-        // === THEN: Watch requests background execution ===
-        let count = await mockRuntimeController.startSessionCallCount
-        XCTAssertEqual(count, 1, "iOS-started sessions should also request background execution")
     }
 
     // MARK: - Background Execution Released When Session Ends
@@ -172,19 +136,6 @@ final class ExtendedRuntimeTests: XCTestCase {
         XCTAssertFalse(isActive)
     }
 
-    func testIOSStopCommandReleasesBackgroundExecution() async throws {
-        // === GIVEN: Session started from iOS ===
-        try await sendIOSStartCommand(durationMinutes: 5)
-        try await advanceEngine(steps: 10)
-
-        // === WHEN: iOS sends stop command ===
-        try await sendIOSStopCommand()
-
-        // === THEN: Background execution is released ===
-        let invalidateCount = await mockRuntimeController.invalidateSessionCallCount
-        XCTAssertEqual(invalidateCount, 1, "iOS stop should release background execution")
-    }
-
     // MARK: - Multiple Sessions
 
     func testRestartingSessionRequestsNewBackgroundExecution() async throws {
@@ -213,8 +164,7 @@ final class ExtendedRuntimeTests: XCTestCase {
         // === GIVEN: ViewModel created without extended runtime controller ===
         // (This could happen on older OS versions or if entitlements are missing)
         let viewModelWithoutRuntime = BreathingViewModel(
-            engine: engine,
-            connectivity: mockConnectivity
+            engine: engine
             // No extendedRuntimeController provided
         )
 

@@ -1,11 +1,11 @@
 import XCTest
-@testable import OvloWatch
+@testable import OvloPhone
 
 /// Integration tests covering complete user journeys.
 ///
 /// These tests simulate real user workflows from start to finish:
-/// - Complete breathing sessions (start → breathe → complete)
-/// - Interrupted sessions (start → stop early)
+/// - Complete breathing sessions (start -> breathe -> complete)
+/// - Interrupted sessions (start -> stop early)
 /// - Custom configuration flows
 ///
 /// Unlike unit tests, these verify the full stack works together.
@@ -56,7 +56,7 @@ final class UserJourneyTests: XCTestCase {
 
     // MARK: - Journey: Complete Local Session
 
-    /// User opens watch app → taps play → breathes through full session → sees completion
+    /// User opens iOS app -> taps play -> breathes through full session -> sees completion
     func testCompleteLocalBreathingSession() async throws {
         // === GIVEN: User is on the start screen ===
         XCTAssertEqual(viewModel.currentState, .ready)
@@ -106,7 +106,7 @@ final class UserJourneyTests: XCTestCase {
 
     // MARK: - Journey: Stop Session Early
 
-    /// User starts session → decides to stop → returns to start screen
+    /// User starts session -> decides to stop -> returns to start screen
     func testUserStopsSessionEarly() async throws {
         // === GIVEN: User starts a session ===
         await viewModel.startLocalSession()
@@ -133,7 +133,7 @@ final class UserJourneyTests: XCTestCase {
 
     // MARK: - Journey: Complete Session Early (Swipe Up)
 
-    /// User starts session → swipes up to finish early → sees completion screen → taps done
+    /// User starts session -> swipes up to finish early -> sees completion screen -> taps done
     func testUserCompletesSessionEarlyWithSwipe() async throws {
         // === GIVEN: User is mid-session ===
         await viewModel.startLocalSession()
@@ -162,7 +162,7 @@ final class UserJourneyTests: XCTestCase {
 
     // MARK: - Journey: Custom Settings Session
 
-    /// User adjusts settings → starts session → session uses custom timing
+    /// User adjusts settings -> starts session -> session uses custom timing
     func testUserConfiguresCustomSession() async throws {
         // === GIVEN: User is on start screen with defaults ===
         XCTAssertEqual(viewModel.selectedDuration, 5)
@@ -196,7 +196,7 @@ final class UserJourneyTests: XCTestCase {
 
     // MARK: - Journey: Restart Session
 
-    /// User starts session → stops → starts again with different settings
+    /// User starts session -> stops -> starts again with different settings
     func testUserRestartsWithDifferentSettings() async throws {
         // === First session: default 5 minutes ===
         await viewModel.startLocalSession()
