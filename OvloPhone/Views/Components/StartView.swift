@@ -11,6 +11,7 @@ struct StartView: View {
     let onStart: () -> Void
 
     @State private var showingSettings = false
+    @State private var isPulsing = false
 
     private let gradientColors: [Color] = [
         Color(red: 0.02, green: 0.08, blue: 0.18),
@@ -51,10 +52,22 @@ struct StartView: View {
                         .background(
                             Circle()
                                 .fill(accentCyan)
-                                .shadow(color: accentCyan.opacity(0.5), radius: 15)
+                                .shadow(
+                                    color: accentCyan.opacity(isPulsing ? 0.8 : 0.4),
+                                    radius: isPulsing ? 25 : 15
+                                )
                         )
+                        .scaleEffect(isPulsing ? 1.08 : 1.0)
                 }
                 .buttonStyle(.plain)
+                .onAppear {
+                    withAnimation(
+                        .easeInOut(duration: 1.5)
+                        .repeatForever(autoreverses: true)
+                    ) {
+                        isPulsing = true
+                    }
+                }
 
                 Spacer()
 

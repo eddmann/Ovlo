@@ -74,8 +74,6 @@ struct BreathingView: View {
                     .buttonStyle(.plain)
                     .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
-
-                Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
