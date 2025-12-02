@@ -86,47 +86,47 @@ struct BreathingCircle: View {
     }
 
     var body: some View {
-        ZStack {
-            if showProgress {
+        // TimelineView with periodic scheduler ensures updates continue when display dims (always-on mode)
+        // The animation scheduler pauses in dimmed mode, but periodic continues at watchOS's limited rate (~1fps)
+        TimelineView(.periodic(from: .now, by: 1.0 / 30.0)) { context in
+            let _ = context.date // Force view re-evaluation on each tick
+            ZStack {
+                if showProgress {
+                    Circle()
+                        .stroke(Color.gray.opacity(0.2), lineWidth: progressLineWidth)
+                        .scaleEffect(scale)
+                }
+
+                if showProgress {
+                    Circle()
+                        .trim(from: 0, to: sessionProgress)
+                        .stroke(
+                            color.opacity(0.8),
+                            style: StrokeStyle(lineWidth: progressLineWidth, lineCap: .round)
+                        )
+                        .rotationEffect(.degrees(-90))
+                        .scaleEffect(scale)
+                }
+
                 Circle()
-                    .stroke(Color.gray.opacity(0.2), lineWidth: progressLineWidth)
-                    .scaleEffect(scale)
-                    .animation(.easeInOut(duration: 0.3), value: state)
-            }
-
-            if showProgress {
-                Circle()
-                    .trim(from: 0, to: sessionProgress)
-                    .stroke(
-                        color.opacity(0.8),
-                        style: StrokeStyle(lineWidth: progressLineWidth, lineCap: .round)
+                    .fill(
+                        RadialGradient(
+                            colors: [color.opacity(0.8), color.opacity(0.4)],
+                            center: .center,
+                            startRadius: innerCircleSize * 0.17,
+                            endRadius: innerCircleSize * 0.67
+                        )
                     )
-                    .rotationEffect(.degrees(-90))
+                    .frame(width: innerCircleSize, height: innerCircleSize)
                     .scaleEffect(scale)
-                    .animation(.easeInOut(duration: 0.3), value: state)
-                    .animation(.linear(duration: 0.5), value: sessionProgress)
-            }
+                    .opacity(opacity)
 
-            Circle()
-                .fill(
-                    RadialGradient(
-                        colors: [color.opacity(0.8), color.opacity(0.4)],
-                        center: .center,
-                        startRadius: innerCircleSize * 0.17,
-                        endRadius: innerCircleSize * 0.67
-                    )
-                )
-                .frame(width: innerCircleSize, height: innerCircleSize)
-                .scaleEffect(scale)
-                .opacity(opacity)
-                .animation(.easeInOut(duration: 0.3), value: state)
-
-            if state.isActive {
-                Text("\(remainingPhaseSeconds)")
-                    .font(.system(size: size * 0.25, weight: .semibold, design: .rounded))
-                    .foregroundStyle(.white)
-                    .contentTransition(.numericText())
-                    .animation(.easeInOut(duration: 0.2), value: remainingPhaseSeconds)
+                if state.isActive {
+                    Text("\(remainingPhaseSeconds)")
+                        .font(.system(size: size * 0.25, weight: .semibold, design: .rounded))
+                        .foregroundStyle(.white)
+                        .contentTransition(.numericText())
+                }
             }
         }
         .frame(width: size, height: size)
