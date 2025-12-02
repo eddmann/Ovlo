@@ -30,11 +30,11 @@
 		68EC6CF02ED4B7F2009E99EE /* ClockProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CDC2ED4B7F2009E99EE /* ClockProtocol.swift */; };
 		68EC6CF12ED4B7F2009E99EE /* BreathingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CE12ED4B7F2009E99EE /* BreathingCircle.swift */; };
 		68EC6CF22ED4B7F2009E99EE /* OvloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CE72ED4B7F2009E99EE /* OvloApp.swift */; };
+		68EC6CFA2ED4B816009E99EE /* BreathingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CF62ED4B816009E99EE /* BreathingSession.swift */; };
+		68EC6CFD2ED4B816009E99EE /* BreathingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CF62ED4B816009E99EE /* BreathingSession.swift */; };
 		68EC6CWWW00001 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CWWW00002 /* SettingsManager.swift */; };
 		68EC6CWWW00003 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CWWW00004 /* AudioController.swift */; };
 		68EC6CWWW00005 /* chime.wav in Resources */ = {isa = PBXBuildFile; fileRef = 68EC6CWWW00006 /* chime.wav */; };
-		68EC6CFA2ED4B816009E99EE /* BreathingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CF62ED4B816009E99EE /* BreathingSession.swift */; };
-		68EC6CFD2ED4B816009E99EE /* BreathingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CF62ED4B816009E99EE /* BreathingSession.swift */; };
 		68EC6D0C2ED4BBFE009E99EE /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D0B2ED4BBFE009E99EE /* StartView.swift */; };
 		68EC6D202ED4C000009E99EE /* BreathingEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D082ED4B83B009E99EE /* BreathingEngineTests.swift */; };
 		68EC6D232ED4C000009E99EE /* TestClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D002ED4B83B009E99EE /* TestClock.swift */; };
@@ -116,15 +116,15 @@
 		68EC6CDB2ED4B7F2009E99EE /* BreathingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingState.swift; sourceTree = "<group>"; };
 		68EC6CDC2ED4B7F2009E99EE /* ClockProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockProtocol.swift; sourceTree = "<group>"; };
 		68EC6CDD2ED4B7F2009E99EE /* HapticController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticController.swift; sourceTree = "<group>"; };
-		68EC6CWWW00002 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
-		68EC6CWWW00004 /* AudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
-		68EC6CWWW00006 /* chime.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime.wav; sourceTree = "<group>"; };
 		68EC6CDF2ED4B7F2009E99EE /* BreathingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingViewModel.swift; sourceTree = "<group>"; };
 		68EC6CE12ED4B7F2009E99EE /* BreathingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingCircle.swift; sourceTree = "<group>"; };
 		68EC6CE42ED4B7F2009E99EE /* BreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
 		68EC6CE62ED4B7F2009E99EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68EC6CE72ED4B7F2009E99EE /* OvloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvloApp.swift; sourceTree = "<group>"; };
 		68EC6CF62ED4B816009E99EE /* BreathingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingSession.swift; sourceTree = "<group>"; };
+		68EC6CWWW00002 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		68EC6CWWW00004 /* AudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
+		68EC6CWWW00006 /* chime.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime.wav; sourceTree = "<group>"; };
 		68EC6D002ED4B83B009E99EE /* TestClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestClock.swift; sourceTree = "<group>"; };
 		68EC6D082ED4B83B009E99EE /* BreathingEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingEngineTests.swift; sourceTree = "<group>"; };
 		68EC6D0B2ED4BBFE009E99EE /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -764,7 +764,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eddmann.Ovlo.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -800,7 +800,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eddmann.Ovlo.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -832,14 +832,14 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eddmann.Ovlo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -868,14 +868,14 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eddmann.Ovlo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
