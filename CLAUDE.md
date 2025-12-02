@@ -22,38 +22,38 @@ xcodebuild -project Ovlo.xcodeproj -scheme OvloWatchTests -destination 'platform
 
 # Run a single test method
 xcodebuild -project Ovlo.xcodeproj -scheme OvloWatchTests -destination 'platform=watchOS Simulator,name=Apple Watch Series 11 (42mm)' test -only-testing:OvloWatchTests/BreathingEngineTests/testInitialState
+
+# Run all iOS tests
+xcodebuild -project Ovlo.xcodeproj -scheme OvloPhoneTests -destination 'platform=iOS Simulator,name=iPhone 17 Pro' test
+
+# Run a single iOS test class
+xcodebuild -project Ovlo.xcodeproj -scheme OvloPhoneTests -destination 'platform=iOS Simulator,name=iPhone 17 Pro' test -only-testing:OvloPhoneTests/BreathingEngineTests
 ```
 
 ## Architecture Overview
 
-Ovlo is a breathing exercise app with an iOS companion app and watchOS app. The watch runs the breathing exercise; the iOS app sends start/stop commands.
+Ovlo is a breathing exercise app for iOS and watchOS. Both platforms run breathing exercises independently.
 
 **Targets**: iOS 26.0+, watchOS 26.0+
 
 ### Multi-Target Structure
 
-- **OvloPhone/** - iOS companion app (sends commands to watch)
+- **OvloPhone/** - iOS app (runs breathing exercises)
 - **OvloWatch/** - watchOS app (runs breathing exercises)
-- **OvloWatchTests/** - Unit tests
+- **OvloPhoneTests/** - iOS unit tests
+- **OvloWatchTests/** - watchOS unit tests
 
 Shared code lives in `Shared/` at the project root and is compiled into both iOS and watchOS targets directly (no framework).
 
-### Domain Layer (Watch App)
+### Domain Layer
 
 - `BreathingEngine` - Actor that manages breathing state machine (ready → inhaling → exhaling → completed). Publishes state via `AsyncStream<BreathingState>`. Accepts injected `ClockProtocol` and `HapticControllerProtocol` for testability.
 - `BreathingState` - Enum representing breathing phases with associated progress values (0.0-1.0)
 - `BreathingSession` - Configuration for a session (duration, inhale/exhale timing)
 
-### Communication (Shared)
-
-- `WatchConnectivityProtocol` - Protocol abstracting WatchConnectivity for dependency injection
-- `WatchConnectivityManager` - Production implementation using WCSession
-- `ConnectivityCommand` - Commands sent between devices (start/stop)
-
 ### ViewModel Layer
 
-- `BreathingViewModel` (Watch) - Coordinates engine, connectivity, and UI. Handles incoming iOS commands.
-- `SessionControlViewModel` (iOS) - Sends start/stop commands to watch, tracks connection state.
+- `BreathingViewModel` - Coordinates engine and UI. Present on both iOS and watchOS.
 
 ### Concurrency Model
 
@@ -67,6 +67,6 @@ Shared code lives in `Shared/` at the project root and is compiled into both iOS
 Tests use dependency injection with protocols:
 - `TestClock` - Returns immediately from `sleep()` for fast tests
 - `MockHapticController` - Records feedback calls without hardware
-- `MockWatchConnectivity` (in OvloWatchTests/) - Simulates connectivity
+- `MockExtendedRuntimeController` (watchOS) - Simulates background execution
 
 The engine uses 60 steps per breathing phase for smooth animation. Tests validate state transitions and haptic feedback counts.
