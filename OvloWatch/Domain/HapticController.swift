@@ -23,16 +23,18 @@ public struct HapticController: HapticControllerProtocol {
     /// Plays a gentle haptic at the start of each breathing phase.
     @MainActor
     public func playPhaseFeedback() async {
+        guard SettingsManager.shared.isHapticEnabled else { return }
         #if os(watchOS)
-        WKInterfaceDevice.current().play(.start)
+        WKInterfaceDevice.current().play(.click)
         #endif
     }
 
     /// Plays a success haptic when the session completes.
     @MainActor
     public func playCompletionFeedback() async {
+        guard SettingsManager.shared.isHapticEnabled else { return }
         #if os(watchOS)
-        WKInterfaceDevice.current().play(.success)
+        WKInterfaceDevice.current().play(.click)
         #endif
     }
 }

@@ -27,7 +27,8 @@ final class BreathingEngineTests: XCTestCase {
         mockHaptics = MockHapticController()
         engine = BreathingEngine(
             clock: testClock,
-            hapticController: mockHaptics
+            hapticController: mockHaptics,
+            audioController: nil
         )
     }
 

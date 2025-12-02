@@ -23,65 +23,69 @@ struct StartView: View {
     @State private var isPulsing = false
 
     var body: some View {
-        ZStack {
-            LinearGradient(
-                colors: gradientColors,
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .ignoresSafeArea()
+        GeometryReader { geometry in
+            ZStack {
+                LinearGradient(
+                    colors: gradientColors,
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .ignoresSafeArea()
 
-            VStack(spacing: 10) {
-                Spacer()
+                VStack(spacing: 0) {
+                    // Top section - title and info (25% from top)
+                    VStack(spacing: 4) {
+                        Text("Ovlo")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.white)
 
-                Text("Ovlo")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.white)
-
-                Text("\(selectedInhale)-\(selectedExhale) ~ \(selectedDuration) min")
-                    .font(.footnote)
-                    .foregroundStyle(.white.opacity(0.7))
-
-                Spacer()
-
-                Button(action: onStart) {
-                    Image(systemName: "play.fill")
-                        .font(.title2)
-                        .foregroundColor(Color(red: 0.02, green: 0.08, blue: 0.18))
-                        .frame(width: 64, height: 64)
-                        .background(
-                            Circle()
-                                .fill(accentCyan)
-                                .shadow(
-                                    color: accentCyan.opacity(isPulsing ? 0.8 : 0.4),
-                                    radius: isPulsing ? 18 : 10
-                                )
-                        )
-                        .scaleEffect(isPulsing ? 1.08 : 1.0)
-                }
-                .buttonStyle(.plain)
-                .onAppear {
-                    withAnimation(
-                        .easeInOut(duration: 1.5)
-                        .repeatForever(autoreverses: true)
-                    ) {
-                        isPulsing = true
+                        Text("\(selectedInhale)-\(selectedExhale) ~ \(selectedDuration) min")
+                            .font(.footnote)
+                            .foregroundStyle(.white.opacity(0.7))
                     }
-                }
+                    .frame(height: geometry.size.height * 0.25, alignment: .bottom)
 
-                Spacer()
+                    // Middle section - play button (55%)
+                    Button(action: onStart) {
+                        Image(systemName: "play.fill")
+                            .font(.title3)
+                            .foregroundColor(Color(red: 0.02, green: 0.08, blue: 0.18))
+                            .frame(width: 54, height: 54)
+                            .background(
+                                Circle()
+                                    .fill(accentCyan)
+                                    .shadow(
+                                        color: accentCyan.opacity(isPulsing ? 0.8 : 0.4),
+                                        radius: isPulsing ? 14 : 8
+                                    )
+                            )
+                            .scaleEffect(isPulsing ? 1.08 : 1.0)
+                    }
+                    .buttonStyle(.plain)
+                    .onAppear {
+                        withAnimation(
+                            .easeInOut(duration: 1.5)
+                            .repeatForever(autoreverses: true)
+                        ) {
+                            isPulsing = true
+                        }
+                    }
+                    .frame(height: geometry.size.height * 0.55)
 
-                Button {
-                    showingSettings = true
-                } label: {
-                    Image(systemName: "gearshape")
-                        .font(.body)
-                        .foregroundStyle(.white.opacity(0.6))
+                    // Bottom section - settings button (20%)
+                    Button {
+                        showingSettings = true
+                    } label: {
+                        Image(systemName: "gearshape")
+                            .font(.body)
+                            .foregroundStyle(.white.opacity(0.6))
+                    }
+                    .buttonStyle(.plain)
+                    .frame(height: geometry.size.height * 0.20)
                 }
-                .buttonStyle(.plain)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            .padding(.horizontal)
         }
         .sheet(isPresented: $showingSettings) {
             SettingsView(
@@ -101,6 +105,9 @@ struct SettingsView: View {
     @Binding var selectedDuration: Int
     @Binding var selectedInhale: Int
     @Binding var selectedExhale: Int
+
+    @State private var soundEnabled = SettingsManager.shared.isSoundEnabled
+    @State private var hapticEnabled = SettingsManager.shared.isHapticEnabled
 
     private let durationOptions = [1, 2, 5, 10, 15]
     private let breathOptions = [4, 5, 6, 7, 8, 10, 12]
@@ -136,6 +143,17 @@ struct SettingsView: View {
                     ) { "\($0)s" }
                 } label: {
                     LabeledContent("Exhale", value: "\(selectedExhale)s")
+                }
+
+                Section {
+                    Toggle("Sound", isOn: $soundEnabled)
+                        .onChange(of: soundEnabled) { _, newValue in
+                            SettingsManager.shared.isSoundEnabled = newValue
+                        }
+                    Toggle("Vibrate", isOn: $hapticEnabled)
+                        .onChange(of: hapticEnabled) { _, newValue in
+                            SettingsManager.shared.isHapticEnabled = newValue
+                        }
                 }
 
                 Button("Done") {

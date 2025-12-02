@@ -104,28 +104,44 @@ struct SettingsView: View {
     @Binding var selectedInhale: Int
     @Binding var selectedExhale: Int
 
+    @State private var soundEnabled = SettingsManager.shared.isSoundEnabled
+    @State private var hapticEnabled = SettingsManager.shared.isHapticEnabled
+
     private let durationOptions = [1, 2, 5, 10, 15]
     private let breathOptions = [4, 5, 6, 7, 8, 10, 12]
 
     var body: some View {
         NavigationStack {
             List {
-                Picker("Duration", selection: $selectedDuration) {
-                    ForEach(durationOptions, id: \.self) { minutes in
-                        Text("\(minutes) min").tag(minutes)
+                Section {
+                    Picker("Duration", selection: $selectedDuration) {
+                        ForEach(durationOptions, id: \.self) { minutes in
+                            Text("\(minutes) min").tag(minutes)
+                        }
+                    }
+
+                    Picker("Inhale", selection: $selectedInhale) {
+                        ForEach(breathOptions, id: \.self) { seconds in
+                            Text("\(seconds)s").tag(seconds)
+                        }
+                    }
+
+                    Picker("Exhale", selection: $selectedExhale) {
+                        ForEach(breathOptions, id: \.self) { seconds in
+                            Text("\(seconds)s").tag(seconds)
+                        }
                     }
                 }
 
-                Picker("Inhale", selection: $selectedInhale) {
-                    ForEach(breathOptions, id: \.self) { seconds in
-                        Text("\(seconds)s").tag(seconds)
-                    }
-                }
-
-                Picker("Exhale", selection: $selectedExhale) {
-                    ForEach(breathOptions, id: \.self) { seconds in
-                        Text("\(seconds)s").tag(seconds)
-                    }
+                Section {
+                    Toggle("Sound", isOn: $soundEnabled)
+                        .onChange(of: soundEnabled) { _, newValue in
+                            SettingsManager.shared.isSoundEnabled = newValue
+                        }
+                    Toggle("Vibrate", isOn: $hapticEnabled)
+                        .onChange(of: hapticEnabled) { _, newValue in
+                            SettingsManager.shared.isHapticEnabled = newValue
+                        }
                 }
             }
             .navigationTitle("Settings")

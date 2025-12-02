@@ -30,7 +30,8 @@ final class ExtendedRuntimeTests: XCTestCase {
 
         engine = BreathingEngine(
             clock: testClock,
-            hapticController: mockHaptics
+            hapticController: mockHaptics,
+            audioController: nil
         )
 
         viewModel = BreathingViewModel(

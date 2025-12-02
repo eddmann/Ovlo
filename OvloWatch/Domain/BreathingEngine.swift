@@ -13,6 +13,7 @@ public actor BreathingEngine {
     // MARK: - Dependencies
     private let clock: ClockProtocol
     private let hapticController: HapticControllerProtocol
+    private let audioController: AudioControllerProtocol?
 
     // MARK: - State
     private var currentState: BreathingState = .ready
@@ -29,12 +30,15 @@ public actor BreathingEngine {
     /// - Parameters:
     ///   - clock: Clock for timing operations (injected for testing)
     ///   - hapticController: Controller for haptic feedback
+    ///   - audioController: Controller for audio feedback (optional, nil disables audio)
     public init(
         clock: ClockProtocol = ContinuousClock(),
-        hapticController: HapticControllerProtocol = HapticController()
+        hapticController: HapticControllerProtocol = HapticController(),
+        audioController: AudioControllerProtocol? = AudioController()
     ) {
         self.clock = clock
         self.hapticController = hapticController
+        self.audioController = audioController
 
         var continuation: AsyncStream<BreathingState>.Continuation!
         self.stateStream = AsyncStream { continuation = $0 }
@@ -88,6 +92,7 @@ public actor BreathingEngine {
 
     private func runInhalePhase(duration: TimeInterval) async {
         await hapticController.playPhaseFeedback()
+        await audioController?.playPhaseTransitionSound()
 
         let steps = 60
         let stepDuration = duration / Double(steps)
@@ -108,6 +113,7 @@ public actor BreathingEngine {
 
     private func runExhalePhase(duration: TimeInterval) async {
         await hapticController.playPhaseFeedback()
+        await audioController?.playPhaseTransitionSound()
 
         let steps = 60
         let stepDuration = duration / Double(steps)

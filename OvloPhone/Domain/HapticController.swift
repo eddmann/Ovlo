@@ -15,12 +15,14 @@ public struct HapticController: HapticControllerProtocol {
 
     @MainActor
     public func playPhaseFeedback() async {
-        let generator = UIImpactFeedbackGenerator(style: .medium)
+        guard SettingsManager.shared.isHapticEnabled else { return }
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.impactOccurred()
     }
 
     @MainActor
     public func playCompletionFeedback() async {
+        guard SettingsManager.shared.isHapticEnabled else { return }
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
     }
