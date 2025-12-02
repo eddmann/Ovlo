@@ -30,6 +30,7 @@ public final class BreathingViewModel {
 
     // MARK: - Dependencies
     private let engine: BreathingEngine
+    private let idleTimerController: IdleTimerControllerProtocol
 
     // MARK: - Private State
     private var currentSession: BreathingSession?
@@ -44,8 +45,13 @@ public final class BreathingViewModel {
     /// Creates a new breathing view model.
     /// - Parameters:
     ///   - engine: The breathing engine
-    public init(engine: BreathingEngine) {
+    ///   - idleTimerController: Controller for preventing screen lock during sessions
+    public init(
+        engine: BreathingEngine,
+        idleTimerController: IdleTimerControllerProtocol = IdleTimerController()
+    ) {
         self.engine = engine
+        self.idleTimerController = idleTimerController
         startStateObservation()
     }
 
@@ -57,6 +63,7 @@ public final class BreathingViewModel {
         elapsedSeconds = 0
         sessionStartTime = Date()
 
+        idleTimerController.disableIdleTimer()
         await engine.start(session: session)
         startProgressTracking()
     }
@@ -77,6 +84,7 @@ public final class BreathingViewModel {
         sessionStartTime = nil
         currentSession = nil
         elapsedSeconds = 0
+        idleTimerController.enableIdleTimer()
     }
 
     /// Completes the session early, showing the completion screen instead of returning to ready.
@@ -85,6 +93,7 @@ public final class BreathingViewModel {
         progressTask?.cancel()
         progressTask = nil
         currentState = .completed
+        idleTimerController.enableIdleTimer()
     }
 
     // MARK: - Private Implementation
@@ -98,6 +107,9 @@ public final class BreathingViewModel {
             for await state in stream {
                 await MainActor.run {
                     self.currentState = state
+                    if state == .completed {
+                        self.idleTimerController.enableIdleTimer()
+                    }
                 }
             }
         }
