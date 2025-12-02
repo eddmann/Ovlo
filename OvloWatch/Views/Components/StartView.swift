@@ -11,7 +11,6 @@ struct StartView: View {
     let onStart: () -> Void
 
     @State private var showingSettings = false
-    @State private var isPulsing = false
 
     private let gradientColors: [Color] = [
         Color(red: 0.02, green: 0.08, blue: 0.18),
@@ -20,6 +19,8 @@ struct StartView: View {
     ]
 
     private let accentCyan = Color(red: 0.25, green: 0.95, blue: 0.88)
+
+    @State private var isPulsing = false
 
     var body: some View {
         ZStack {
@@ -107,33 +108,71 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
-                Picker("Duration", selection: $selectedDuration) {
-                    ForEach(durationOptions, id: \.self) { minutes in
-                        Text("\(minutes) min").tag(minutes)
-                    }
+                NavigationLink {
+                    SelectionList(
+                        title: "Duration",
+                        options: durationOptions,
+                        selection: $selectedDuration
+                    ) { "\($0) min" }
+                } label: {
+                    LabeledContent("Duration", value: "\(selectedDuration) min")
                 }
 
-                Picker("Inhale", selection: $selectedInhale) {
-                    ForEach(breathOptions, id: \.self) { seconds in
-                        Text("\(seconds)s").tag(seconds)
-                    }
+                NavigationLink {
+                    SelectionList(
+                        title: "Inhale",
+                        options: breathOptions,
+                        selection: $selectedInhale
+                    ) { "\($0)s" }
+                } label: {
+                    LabeledContent("Inhale", value: "\(selectedInhale)s")
                 }
 
-                Picker("Exhale", selection: $selectedExhale) {
-                    ForEach(breathOptions, id: \.self) { seconds in
-                        Text("\(seconds)s").tag(seconds)
-                    }
+                NavigationLink {
+                    SelectionList(
+                        title: "Exhale",
+                        options: breathOptions,
+                        selection: $selectedExhale
+                    ) { "\($0)s" }
+                } label: {
+                    LabeledContent("Exhale", value: "\(selectedExhale)s")
                 }
+
+                Button("Done") {
+                    dismiss()
+                }
+                .foregroundColor(.green)
             }
             .navigationTitle("Settings")
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") {
-                        dismiss()
+        }
+    }
+}
+
+struct SelectionList: View {
+    let title: String
+    let options: [Int]
+    @Binding var selection: Int
+    let format: (Int) -> String
+
+    @Environment(\.dismiss) private var dismiss
+
+    var body: some View {
+        List(options, id: \.self) { option in
+            Button {
+                selection = option
+                dismiss()
+            } label: {
+                HStack {
+                    Text(format(option))
+                    Spacer()
+                    if option == selection {
+                        Image(systemName: "checkmark")
+                            .foregroundStyle(.green)
                     }
                 }
             }
         }
+        .navigationTitle(title)
     }
 }
 
