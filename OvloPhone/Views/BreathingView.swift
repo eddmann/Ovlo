@@ -62,6 +62,11 @@ struct BreathingView: View {
                         .lineLimit(2)
                         .frame(maxWidth: geometry.size.width * 0.8)
                         .scaleEffect(textScale)
+                        .transition(.asymmetric(
+                            insertion: .move(edge: .bottom).combined(with: .opacity),
+                            removal: .move(edge: .top).combined(with: .opacity)
+                        ))
+                        .animation(.easeInOut(duration: 0.5), value: affirmation)
                         .animation(.easeInOut(duration: 0.3), value: viewModel.currentState)
                         .id(affirmation)
                 } else {
