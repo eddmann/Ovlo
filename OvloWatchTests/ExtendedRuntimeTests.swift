@@ -55,7 +55,7 @@ final class ExtendedRuntimeTests: XCTestCase {
     private func advanceEngine(steps: Int) async throws {
         for _ in 0..<steps {
             await testClock.advance()
-            try await Task.sleep(for: .milliseconds(1))
+            try await Task.sleep(for: .milliseconds(2))
         }
     }
 
