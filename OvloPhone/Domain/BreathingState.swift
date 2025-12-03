@@ -52,4 +52,10 @@ public enum BreathingState: Sendable, Equatable {
             return 0.0
         }
     }
+
+    /// Returns true if currently in the exhaling phase
+    public var isExhaling: Bool {
+        if case .exhaling = self { return true }
+        return false
+    }
 }

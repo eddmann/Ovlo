@@ -9,6 +9,7 @@ public final class SettingsManager: @unchecked Sendable {
     private enum Keys {
         static let soundEnabled = "soundEnabled"
         static let hapticEnabled = "hapticEnabled"
+        static let affirmationsEnabled = "affirmationsEnabled"
     }
 
     private init() {
@@ -30,5 +31,12 @@ public final class SettingsManager: @unchecked Sendable {
     public var isHapticEnabled: Bool {
         get { defaults.bool(forKey: Keys.hapticEnabled) }
         set { defaults.set(newValue, forKey: Keys.hapticEnabled) }
+    }
+
+    /// Whether affirmations are shown during breathing sessions.
+    /// Defaults to false (off) for new users.
+    public var isAffirmationsEnabled: Bool {
+        get { defaults.bool(forKey: Keys.affirmationsEnabled) }
+        set { defaults.set(newValue, forKey: Keys.affirmationsEnabled) }
     }
 }

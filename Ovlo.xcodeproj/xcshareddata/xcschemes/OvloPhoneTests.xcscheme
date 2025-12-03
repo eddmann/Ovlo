@@ -41,9 +41,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "68A7D7792ED4B08F0013DB96"
-            BuildableName = "OvloWatch.app"
-            BlueprintName = "OvloWatch"
+            BlueprintIdentifier = "68A7D76C2ED4B08F0013DB96"
+            BuildableName = "OvloPhone.app"
+            BlueprintName = "OvloPhone"
             ReferencedContainer = "container:Ovlo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

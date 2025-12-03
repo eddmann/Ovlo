@@ -106,6 +106,7 @@ struct SettingsView: View {
 
     @State private var soundEnabled = SettingsManager.shared.isSoundEnabled
     @State private var hapticEnabled = SettingsManager.shared.isHapticEnabled
+    @State private var affirmationsEnabled = SettingsManager.shared.isAffirmationsEnabled
 
     private let durationOptions = [1, 2, 5, 10, 15]
     private let breathOptions = [4, 5, 6, 7, 8, 10, 12]
@@ -142,6 +143,16 @@ struct SettingsView: View {
                         .onChange(of: hapticEnabled) { _, newValue in
                             SettingsManager.shared.isHapticEnabled = newValue
                         }
+                }
+
+                Section {
+                    Toggle("Affirmations", isOn: $affirmationsEnabled)
+                        .onChange(of: affirmationsEnabled) { _, newValue in
+                            SettingsManager.shared.isAffirmationsEnabled = newValue
+                        }
+                    NavigationLink("Customize Affirmations") {
+                        AffirmationSettingsView()
+                    }
                 }
             }
             .navigationTitle("Settings")

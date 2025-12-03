@@ -16,6 +16,7 @@ public final class BreathingViewModel {
     private(set) var currentState: BreathingState = .ready
     private(set) var elapsedSeconds: Int = 0
     private(set) var totalSeconds: Int = 0
+    private(set) var currentAffirmation: String?
     var selectedDuration: Int = 5
     var selectedInhale: Int = 4
     var selectedExhale: Int = 8
@@ -35,6 +36,7 @@ public final class BreathingViewModel {
     // MARK: - Private State
     private var currentSession: BreathingSession?
     private var sessionStartTime: Date?
+    private var lastPhaseWasExhaling: Bool = false
     // Note: nonisolated(unsafe) is required for Task properties that need cleanup in deinit
     // since deinit runs in a nonisolated context. Task.cancel() is thread-safe.
     private nonisolated(unsafe) var stateTask: Task<Void, Never>?
@@ -62,6 +64,15 @@ public final class BreathingViewModel {
         totalSeconds = session.actualDurationSeconds
         elapsedSeconds = 0
         sessionStartTime = Date()
+        lastPhaseWasExhaling = false
+
+        // Initialize affirmation if enabled
+        if SettingsManager.shared.isAffirmationsEnabled {
+            AffirmationManager.shared.shuffle()
+            currentAffirmation = AffirmationManager.shared.nextAffirmation()
+        } else {
+            currentAffirmation = nil
+        }
 
         idleTimerController.disableIdleTimer()
         await engine.start(session: session)
@@ -84,6 +95,7 @@ public final class BreathingViewModel {
         sessionStartTime = nil
         currentSession = nil
         elapsedSeconds = 0
+        currentAffirmation = nil
         idleTimerController.enableIdleTimer()
     }
 
@@ -93,6 +105,7 @@ public final class BreathingViewModel {
         progressTask?.cancel()
         progressTask = nil
         currentState = .completed
+        currentAffirmation = nil
         idleTimerController.enableIdleTimer()
     }
 
@@ -106,13 +119,26 @@ public final class BreathingViewModel {
 
             for await state in stream {
                 await MainActor.run {
+                    self.updateAffirmationIfNeeded(for: state)
                     self.currentState = state
                     if state == .completed {
+                        self.currentAffirmation = nil
                         self.idleTimerController.enableIdleTimer()
                     }
                 }
             }
         }
+    }
+
+    /// Detects breath cycle boundaries and updates affirmation when a new cycle starts.
+    private func updateAffirmationIfNeeded(for state: BreathingState) {
+        // Detect cycle boundary: transitioning from exhaling to inhaling
+        if case .inhaling = state, lastPhaseWasExhaling {
+            if SettingsManager.shared.isAffirmationsEnabled {
+                currentAffirmation = AffirmationManager.shared.nextAffirmation()
+            }
+        }
+        lastPhaseWasExhaling = state.isExhaling
     }
 
     private func startProgressTracking() {

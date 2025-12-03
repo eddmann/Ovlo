@@ -52,11 +52,25 @@ struct BreathingView: View {
 
                 Spacer()
 
-                Text(viewModel.currentState.displayText)
-                    .font(.title2)
-                    .fontWeight(.medium)
-                    .foregroundStyle(labelColor)
-                    .animation(.easeInOut, value: viewModel.currentState)
+                // Show affirmation instead of "Breathe In/Out" when affirmations are enabled
+                if viewModel.currentState.isActive, let affirmation = viewModel.currentAffirmation {
+                    Text(affirmation)
+                        .font(.title2)
+                        .fontWeight(.medium)
+                        .foregroundStyle(labelColor)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(2)
+                        .frame(maxWidth: geometry.size.width * 0.8)
+                        .scaleEffect(textScale)
+                        .animation(.easeInOut(duration: 0.3), value: viewModel.currentState)
+                        .id(affirmation)
+                } else {
+                    Text(viewModel.currentState.displayText)
+                        .font(.title2)
+                        .fontWeight(.medium)
+                        .foregroundStyle(labelColor)
+                        .animation(.easeInOut, value: viewModel.currentState)
+                }
 
                 Spacer()
 
@@ -113,6 +127,18 @@ struct BreathingView: View {
             return .cyan
         case .completed:
             return .green
+        }
+    }
+
+    /// Scale factor for text that breathes with the circle (1.0 to 1.2)
+    private var textScale: CGFloat {
+        switch viewModel.currentState {
+        case .ready, .completed:
+            return 1.0
+        case .inhaling(let progress):
+            return 1.0 + (0.2 * progress)
+        case .exhaling(let progress):
+            return 1.2 - (0.2 * progress)
         }
     }
 
