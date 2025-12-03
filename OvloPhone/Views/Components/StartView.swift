@@ -106,15 +106,19 @@ struct SettingsView: View {
 
     @State private var soundEnabled = SettingsManager.shared.isSoundEnabled
     @State private var hapticEnabled = SettingsManager.shared.isHapticEnabled
+    @State private var musicEnabled = SettingsManager.shared.isMusicEnabled
+    @State private var selectedTrackName = SettingsManager.shared.selectedTrackName
     @State private var affirmationsEnabled = SettingsManager.shared.isAffirmationsEnabled
+    @State private var isPreviewPlaying = false
 
     private let durationOptions = [1, 2, 5, 10, 15]
     private let breathOptions = [4, 5, 6, 7, 8, 10, 12]
+    private let previewController = MusicController()
 
     var body: some View {
         NavigationStack {
             List {
-                Section {
+                Section("Session") {
                     Picker("Duration", selection: $selectedDuration) {
                         ForEach(durationOptions, id: \.self) { minutes in
                             Text("\(minutes) min").tag(minutes)
@@ -135,14 +139,68 @@ struct SettingsView: View {
                 }
 
                 Section {
-                    Toggle("Sound", isOn: $soundEnabled)
+                    Toggle("Chime", isOn: $soundEnabled)
                         .onChange(of: soundEnabled) { _, newValue in
                             SettingsManager.shared.isSoundEnabled = newValue
                         }
-                    Toggle("Vibrate", isOn: $hapticEnabled)
+                    Toggle("Haptics", isOn: $hapticEnabled)
                         .onChange(of: hapticEnabled) { _, newValue in
                             SettingsManager.shared.isHapticEnabled = newValue
                         }
+                } header: {
+                    Text("Transitions")
+                } footer: {
+                    Text("Feedback when switching between inhale and exhale")
+                }
+
+                Section("Background Music") {
+                    Toggle("Music", isOn: $musicEnabled)
+                        .onChange(of: musicEnabled) { _, newValue in
+                            SettingsManager.shared.isMusicEnabled = newValue
+                            if !newValue {
+                                Task {
+                                    await previewController.stopPlayback()
+                                    isPreviewPlaying = false
+                                }
+                            }
+                        }
+                    if musicEnabled {
+                        Picker("Track", selection: $selectedTrackName) {
+                            Text("Dawn Chorus").tag("dawn-chorus")
+                            Text("Ethereal Horizons").tag("ethereal-horizons")
+                            Text("Golden Hour").tag("golden-hour")
+                            Text("Inner Stillness").tag("inner-stillness")
+                            Text("Tidal Serenity").tag("tidal-serenity")
+                            Text("Tranquil Meadow").tag("tranquil-meadow")
+                            Text("Whispering Brook").tag("whispering-brook")
+                            Text("Woodland Rainfall").tag("woodland-rainfall")
+                        }
+                        .onChange(of: selectedTrackName) { _, newValue in
+                            SettingsManager.shared.selectedTrackName = newValue
+                            if isPreviewPlaying {
+                                Task {
+                                    await previewController.startPlayback(trackName: newValue)
+                                }
+                            }
+                        }
+
+                        Button {
+                            Task {
+                                if isPreviewPlaying {
+                                    await previewController.stopPlayback()
+                                    isPreviewPlaying = false
+                                } else {
+                                    await previewController.startPlayback(trackName: selectedTrackName)
+                                    isPreviewPlaying = true
+                                }
+                            }
+                        } label: {
+                            HStack {
+                                Image(systemName: isPreviewPlaying ? "stop.fill" : "play.fill")
+                                Text(isPreviewPlaying ? "Stop Preview" : "Preview Track")
+                            }
+                        }
+                    }
                 }
 
                 Section {
@@ -150,17 +208,31 @@ struct SettingsView: View {
                         .onChange(of: affirmationsEnabled) { _, newValue in
                             SettingsManager.shared.isAffirmationsEnabled = newValue
                         }
-                    NavigationLink("Customize Affirmations") {
-                        AffirmationSettingsView()
+                    if affirmationsEnabled {
+                        NavigationLink("Customize") {
+                            AffirmationSettingsView()
+                        }
                     }
+                } header: {
+                    Text("Affirmations")
+                } footer: {
+                    Text("Positive messages shown during your session")
                 }
             }
             .navigationTitle("Settings")
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") {
+                        Task {
+                            await previewController.stopPlayback()
+                        }
                         dismiss()
                     }
+                }
+            }
+            .onDisappear {
+                Task {
+                    await previewController.stopPlayback()
                 }
             }
         }

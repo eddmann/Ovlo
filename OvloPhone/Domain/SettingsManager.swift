@@ -10,7 +10,21 @@ public final class SettingsManager: @unchecked Sendable {
         static let soundEnabled = "soundEnabled"
         static let hapticEnabled = "hapticEnabled"
         static let affirmationsEnabled = "affirmationsEnabled"
+        static let musicEnabled = "musicEnabled"
+        static let selectedTrackName = "selectedTrackName"
     }
+
+    /// Available bundled music tracks.
+    public static let availableTracks = [
+        "dawn-chorus",
+        "ethereal-horizons",
+        "golden-hour",
+        "inner-stillness",
+        "tidal-serenity",
+        "tranquil-meadow",
+        "whispering-brook",
+        "woodland-rainfall"
+    ]
 
     private init() {
         // Default haptic to true if not set
@@ -38,5 +52,19 @@ public final class SettingsManager: @unchecked Sendable {
     public var isAffirmationsEnabled: Bool {
         get { defaults.bool(forKey: Keys.affirmationsEnabled) }
         set { defaults.set(newValue, forKey: Keys.affirmationsEnabled) }
+    }
+
+    /// Whether background music plays during breathing sessions.
+    /// Defaults to false (off) for new users.
+    public var isMusicEnabled: Bool {
+        get { defaults.bool(forKey: Keys.musicEnabled) }
+        set { defaults.set(newValue, forKey: Keys.musicEnabled) }
+    }
+
+    /// The name of the selected music track.
+    /// Defaults to "inner-stillness" for new users.
+    public var selectedTrackName: String {
+        get { defaults.string(forKey: Keys.selectedTrackName) ?? "inner-stillness" }
+        set { defaults.set(newValue, forKey: Keys.selectedTrackName) }
     }
 }

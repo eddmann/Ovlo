@@ -32,6 +32,7 @@ public final class BreathingViewModel {
     // MARK: - Dependencies
     private let engine: BreathingEngine
     private let idleTimerController: IdleTimerControllerProtocol
+    private let musicController: MusicControllerProtocol?
 
     // MARK: - Private State
     private var currentSession: BreathingSession?
@@ -48,12 +49,15 @@ public final class BreathingViewModel {
     /// - Parameters:
     ///   - engine: The breathing engine
     ///   - idleTimerController: Controller for preventing screen lock during sessions
+    ///   - musicController: Controller for background music playback
     public init(
         engine: BreathingEngine,
-        idleTimerController: IdleTimerControllerProtocol = IdleTimerController()
+        idleTimerController: IdleTimerControllerProtocol = IdleTimerController(),
+        musicController: MusicControllerProtocol? = MusicController()
     ) {
         self.engine = engine
         self.idleTimerController = idleTimerController
+        self.musicController = musicController
         startStateObservation()
     }
 
@@ -75,6 +79,13 @@ public final class BreathingViewModel {
         }
 
         idleTimerController.disableIdleTimer()
+
+        // Start background music if enabled
+        if SettingsManager.shared.isMusicEnabled {
+            let trackName = SettingsManager.shared.selectedTrackName
+            await musicController?.startPlayback(trackName: trackName)
+        }
+
         await engine.start(session: session)
         startProgressTracking()
     }
@@ -90,6 +101,7 @@ public final class BreathingViewModel {
 
     public func stopSession() async {
         await engine.stop()
+        await musicController?.stopPlayback()
         progressTask?.cancel()
         progressTask = nil
         sessionStartTime = nil
@@ -102,6 +114,7 @@ public final class BreathingViewModel {
     /// Completes the session early, showing the completion screen instead of returning to ready.
     public func completeSessionEarly() async {
         await engine.stop()
+        await musicController?.stopPlayback()
         progressTask?.cancel()
         progressTask = nil
         currentState = .completed
@@ -125,6 +138,11 @@ public final class BreathingViewModel {
                         self.currentAffirmation = nil
                         self.idleTimerController.enableIdleTimer()
                     }
+                }
+
+                // Stop music when session completes naturally
+                if state == .completed {
+                    await self.musicController?.stopPlayback()
                 }
             }
         }

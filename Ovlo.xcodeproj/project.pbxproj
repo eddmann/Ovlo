@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6840F2202EE0876A00592639 /* ethereal-horizons.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6840F2192EE0876A00592639 /* ethereal-horizons.mp3 */; };
+		6840F2212EE0876A00592639 /* golden-hour.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6840F21A2EE0876A00592639 /* golden-hour.mp3 */; };
+		6840F2222EE0876A00592639 /* inner-stillness.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6840F21B2EE0876A00592639 /* inner-stillness.mp3 */; };
+		6840F2232EE0876A00592639 /* tidal-serenity.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6840F21C2EE0876A00592639 /* tidal-serenity.mp3 */; };
+		6840F2242EE0876A00592639 /* tranquil-meadow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6840F21D2EE0876A00592639 /* tranquil-meadow.mp3 */; };
+		6840F2252EE0876A00592639 /* woodland-rainfall.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6840F21F2EE0876A00592639 /* woodland-rainfall.mp3 */; };
+		6840F2262EE0876A00592639 /* whispering-brook.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6840F21E2EE0876A00592639 /* whispering-brook.mp3 */; };
+		6840F2272EE0876A00592639 /* dawn-chorus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6840F2182EE0876A00592639 /* dawn-chorus.mp3 */; };
 		68C369972EDF057A0058BF31 /* chime.wav in Resources */ = {isa = PBXBuildFile; fileRef = 68C369962EDF057A0058BF31 /* chime.wav */; };
 		68EC6CAAAA00011 /* BreathingEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CAAAA00002 /* BreathingEngine.swift */; };
 		68EC6CAAAA00012 /* BreathingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CAAAA00003 /* BreathingState.swift */; };
@@ -52,6 +60,8 @@
 		68EC6DBBBB00005 /* MockIdleTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6DBBBB00018 /* MockIdleTimerController.swift */; };
 		68EC6DBBBB00006 /* MockAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6DBBBB00019 /* MockAudioController.swift */; };
 		68EC6DBBBB00007 /* AffirmationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6DBBBB00050 /* AffirmationManagerTests.swift */; };
+		68EC6DBBBB00008 /* MockMusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6DBBBB00051 /* MockMusicController.swift */; };
+		68EC6EAAAA00001 /* MusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6EAAAA00002 /* MusicController.swift */; };
 		68F00AD02ED8BC5800243E08 /* OvloWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 68F00ACE2ED8BBFE00243E08 /* OvloWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -101,6 +111,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6840F2182EE0876A00592639 /* dawn-chorus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "dawn-chorus.mp3"; sourceTree = "<group>"; };
+		6840F2192EE0876A00592639 /* ethereal-horizons.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ethereal-horizons.mp3"; sourceTree = "<group>"; };
+		6840F21A2EE0876A00592639 /* golden-hour.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "golden-hour.mp3"; sourceTree = "<group>"; };
+		6840F21B2EE0876A00592639 /* inner-stillness.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "inner-stillness.mp3"; sourceTree = "<group>"; };
+		6840F21C2EE0876A00592639 /* tidal-serenity.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "tidal-serenity.mp3"; sourceTree = "<group>"; };
+		6840F21D2EE0876A00592639 /* tranquil-meadow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "tranquil-meadow.mp3"; sourceTree = "<group>"; };
+		6840F21E2EE0876A00592639 /* whispering-brook.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "whispering-brook.mp3"; sourceTree = "<group>"; };
+		6840F21F2EE0876A00592639 /* woodland-rainfall.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "woodland-rainfall.mp3"; sourceTree = "<group>"; };
 		68C369962EDF057A0058BF31 /* chime.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime.wav; sourceTree = "<group>"; };
 		68EC6CAAAA00002 /* BreathingEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingEngine.swift; sourceTree = "<group>"; };
 		68EC6CAAAA00003 /* BreathingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingState.swift; sourceTree = "<group>"; };
@@ -147,6 +165,8 @@
 		68EC6DBBBB00018 /* MockIdleTimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIdleTimerController.swift; sourceTree = "<group>"; };
 		68EC6DBBBB00019 /* MockAudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAudioController.swift; sourceTree = "<group>"; };
 		68EC6DBBBB00050 /* AffirmationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationManagerTests.swift; sourceTree = "<group>"; };
+		68EC6DBBBB00051 /* MockMusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMusicController.swift; sourceTree = "<group>"; };
+		68EC6EAAAA00002 /* MusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicController.swift; sourceTree = "<group>"; };
 		68F00ACD2ED8BBFE00243E08 /* OvloPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OvloPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F00ACE2ED8BBFE00243E08 /* OvloWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OvloWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F00AD32ED8BCAB00243E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -211,6 +231,7 @@
 				68EC6CAAAA00004 /* ClockProtocol.swift */,
 				68EC6CAAAA00005 /* HapticController.swift */,
 				68EC6CAAAA00019 /* IdleTimerController.swift */,
+				68EC6EAAAA00002 /* MusicController.swift */,
 				68EC6CAAAA00024 /* SettingsManager.swift */,
 			);
 			path = Domain;
@@ -250,12 +271,44 @@
 				68EC6CAAAA00001 /* Domain */,
 				68EC6CD02ED4B7D7009E99EE /* ViewModels */,
 				68EC6CD22ED4B7D7009E99EE /* Views */,
+				68EC6FAAAA00001 /* Resources */,
 				68EC6CD32ED4B7D7009E99EE /* Assets.xcassets */,
 				68EC6CD42ED4B7D7009E99EE /* OvloApp.swift */,
 				68EC6D2F2EFC0001009E99EE /* LaunchScreen.storyboard */,
-				68C369962EDF057A0058BF31 /* chime.wav */,
 			);
 			path = OvloPhone;
+			sourceTree = "<group>";
+		};
+		68EC6FAAAA00001 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6FAAAA00002 /* Music */,
+				68EC6FAAAA00003 /* Sounds */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		68EC6FAAAA00003 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				68C369962EDF057A0058BF31 /* chime.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		68EC6FAAAA00002 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				6840F2182EE0876A00592639 /* dawn-chorus.mp3 */,
+				6840F2192EE0876A00592639 /* ethereal-horizons.mp3 */,
+				6840F21A2EE0876A00592639 /* golden-hour.mp3 */,
+				6840F21B2EE0876A00592639 /* inner-stillness.mp3 */,
+				6840F21C2EE0876A00592639 /* tidal-serenity.mp3 */,
+				6840F21D2EE0876A00592639 /* tranquil-meadow.mp3 */,
+				6840F21E2EE0876A00592639 /* whispering-brook.mp3 */,
+				6840F21F2EE0876A00592639 /* woodland-rainfall.mp3 */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 		68EC6CDE2ED4B7F2009E99EE /* Domain */ = {
@@ -353,6 +406,7 @@
 			children = (
 				68EC6DBBBB00019 /* MockAudioController.swift */,
 				68EC6DBBBB00018 /* MockIdleTimerController.swift */,
+				68EC6DBBBB00051 /* MockMusicController.swift */,
 				68EC6DBBBB00014 /* TestClock.swift */,
 			);
 			path = Mocks;
@@ -514,6 +568,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6840F2202EE0876A00592639 /* ethereal-horizons.mp3 in Resources */,
+				6840F2212EE0876A00592639 /* golden-hour.mp3 in Resources */,
+				6840F2222EE0876A00592639 /* inner-stillness.mp3 in Resources */,
+				6840F2232EE0876A00592639 /* tidal-serenity.mp3 in Resources */,
+				6840F2242EE0876A00592639 /* tranquil-meadow.mp3 in Resources */,
+				6840F2252EE0876A00592639 /* woodland-rainfall.mp3 in Resources */,
+				6840F2262EE0876A00592639 /* whispering-brook.mp3 in Resources */,
+				6840F2272EE0876A00592639 /* dawn-chorus.mp3 in Resources */,
 				68C369972EDF057A0058BF31 /* chime.wav in Resources */,
 				68EC6CD92ED4B7D7009E99EE /* Assets.xcassets in Resources */,
 				68EC6D302EFC0001009E99EE /* LaunchScreen.storyboard in Resources */,
@@ -557,6 +619,7 @@
 				68EC6CAAAA00014 /* HapticController.swift in Sources */,
 				68EC6CAAAA00020 /* IdleTimerController.swift in Sources */,
 				68EC6CAAAA00021 /* AudioController.swift in Sources */,
+				68EC6EAAAA00001 /* MusicController.swift in Sources */,
 				68EC6CAAAA00023 /* SettingsManager.swift in Sources */,
 				68EC6CAAAA00025 /* AffirmationManager.swift in Sources */,
 				68EC6CAAAA00015 /* BreathingViewModel.swift in Sources */,
@@ -611,6 +674,7 @@
 				68EC6DBBBB00004 /* TestClock.swift in Sources */,
 				68EC6DBBBB00005 /* MockIdleTimerController.swift in Sources */,
 				68EC6DBBBB00006 /* MockAudioController.swift in Sources */,
+				68EC6DBBBB00008 /* MockMusicController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
