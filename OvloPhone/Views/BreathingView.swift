@@ -60,7 +60,7 @@ struct BreathingView: View {
                         .foregroundStyle(labelColor)
                         .multilineTextAlignment(.center)
                         .lineLimit(2)
-                        .frame(maxWidth: geometry.size.width * 0.8)
+                        .frame(maxWidth: geometry.size.width * 0.8, minHeight: 60, alignment: .center)
                         .scaleEffect(textScale)
                         .transition(.asymmetric(
                             insertion: .move(edge: .bottom).combined(with: .opacity),
