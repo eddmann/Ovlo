@@ -146,14 +146,16 @@ struct SettingsView: View {
                 }
 
                 Section {
-                    Toggle("Sound", isOn: $soundEnabled)
+                    Toggle("Chime", isOn: $soundEnabled)
                         .onChange(of: soundEnabled) { _, newValue in
                             SettingsManager.shared.isSoundEnabled = newValue
                         }
-                    Toggle("Vibrate", isOn: $hapticEnabled)
+                    Toggle("Haptics", isOn: $hapticEnabled)
                         .onChange(of: hapticEnabled) { _, newValue in
                             SettingsManager.shared.isHapticEnabled = newValue
                         }
+                } header: {
+                    Text("Transitions")
                 }
 
                 Button("Done") {
