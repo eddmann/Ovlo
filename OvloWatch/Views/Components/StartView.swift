@@ -108,9 +108,11 @@ struct SettingsView: View {
 
     @State private var soundEnabled = SettingsManager.shared.isSoundEnabled
     @State private var hapticEnabled = SettingsManager.shared.isHapticEnabled
+    @State private var selectedChimeName = SettingsManager.shared.selectedChimeName
 
     private let durationOptions = [1, 2, 5, 10, 15]
     private let breathOptions = [4, 5, 6, 7, 8, 10, 12]
+    private let chimePreviewController = AudioController()
 
     var body: some View {
         NavigationStack {
@@ -150,6 +152,16 @@ struct SettingsView: View {
                         .onChange(of: soundEnabled) { _, newValue in
                             SettingsManager.shared.isSoundEnabled = newValue
                         }
+                    if soundEnabled {
+                        NavigationLink {
+                            ChimeSelectionView(
+                                selectedChimeName: $selectedChimeName,
+                                chimePreviewController: chimePreviewController
+                            )
+                        } label: {
+                            LabeledContent("Sound", value: chimeDisplayName(selectedChimeName))
+                        }
+                    }
                     Toggle("Haptics", isOn: $hapticEnabled)
                         .onChange(of: hapticEnabled) { _, newValue in
                             SettingsManager.shared.isHapticEnabled = newValue
@@ -165,6 +177,58 @@ struct SettingsView: View {
             }
             .navigationTitle("Settings")
         }
+    }
+
+    private func chimeDisplayName(_ chimeName: String) -> String {
+        switch chimeName {
+        case "tibetan-bell": return "Tibetan Bell"
+        case "crystal-chime": return "Crystal Chime"
+        case "zen-garden": return "Zen Garden"
+        case "temple-gong": return "Temple Gong"
+        case "twin-bells": return "Twin Bells"
+        case "bright-bell": return "Bright Bell"
+        default: return chimeName
+        }
+    }
+}
+
+struct ChimeSelectionView: View {
+    @Binding var selectedChimeName: String
+    let chimePreviewController: AudioController
+
+    @Environment(\.dismiss) private var dismiss
+
+    private let chimeOptions = [
+        ("tibetan-bell", "Tibetan Bell"),
+        ("crystal-chime", "Crystal Chime"),
+        ("zen-garden", "Zen Garden"),
+        ("temple-gong", "Temple Gong"),
+        ("twin-bells", "Twin Bells"),
+        ("bright-bell", "Bright Bell")
+    ]
+
+    var body: some View {
+        List {
+            ForEach(chimeOptions, id: \.0) { (id, name) in
+                Button {
+                    selectedChimeName = id
+                    SettingsManager.shared.selectedChimeName = id
+                    Task {
+                        await chimePreviewController.playChime(named: id)
+                    }
+                } label: {
+                    HStack {
+                        Text(name)
+                        Spacer()
+                        if id == selectedChimeName {
+                            Image(systemName: "checkmark")
+                                .foregroundStyle(.green)
+                        }
+                    }
+                }
+            }
+        }
+        .navigationTitle("Sound")
     }
 }
 

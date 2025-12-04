@@ -108,12 +108,14 @@ struct SettingsView: View {
     @State private var hapticEnabled = SettingsManager.shared.isHapticEnabled
     @State private var musicEnabled = SettingsManager.shared.isMusicEnabled
     @State private var selectedTrackName = SettingsManager.shared.selectedTrackName
+    @State private var selectedChimeName = SettingsManager.shared.selectedChimeName
     @State private var affirmationsEnabled = SettingsManager.shared.isAffirmationsEnabled
     @State private var isPreviewPlaying = false
 
     private let durationOptions = [1, 2, 5, 10, 15]
     private let breathOptions = [4, 5, 6, 7, 8, 10, 12]
     private let previewController = MusicController()
+    private let chimePreviewController = AudioController()
 
     var body: some View {
         NavigationStack {
@@ -143,6 +145,30 @@ struct SettingsView: View {
                         .onChange(of: soundEnabled) { _, newValue in
                             SettingsManager.shared.isSoundEnabled = newValue
                         }
+                    if soundEnabled {
+                        Picker("Sound", selection: $selectedChimeName) {
+                            Text("Tibetan Bell").tag("tibetan-bell")
+                            Text("Crystal Chime").tag("crystal-chime")
+                            Text("Zen Garden").tag("zen-garden")
+                            Text("Temple Gong").tag("temple-gong")
+                            Text("Twin Bells").tag("twin-bells")
+                            Text("Bright Bell").tag("bright-bell")
+                        }
+                        .onChange(of: selectedChimeName) { _, newValue in
+                            SettingsManager.shared.selectedChimeName = newValue
+                        }
+
+                        Button {
+                            Task {
+                                await chimePreviewController.playChime(named: selectedChimeName)
+                            }
+                        } label: {
+                            HStack {
+                                Image(systemName: "play.fill")
+                                Text("Preview Chime")
+                            }
+                        }
+                    }
                     Toggle("Haptics", isOn: $hapticEnabled)
                         .onChange(of: hapticEnabled) { _, newValue in
                             SettingsManager.shared.isHapticEnabled = newValue
@@ -173,7 +199,6 @@ struct SettingsView: View {
                             Text("Tidal Serenity").tag("tidal-serenity")
                             Text("Tranquil Meadow").tag("tranquil-meadow")
                             Text("Whispering Brook").tag("whispering-brook")
-                            Text("Woodland Rainfall").tag("woodland-rainfall")
                         }
                         .onChange(of: selectedTrackName) { _, newValue in
                             SettingsManager.shared.selectedTrackName = newValue

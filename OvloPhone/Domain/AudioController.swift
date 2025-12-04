@@ -7,39 +7,53 @@ private let logger = Logger(subsystem: "com.ovlo.phone", category: "AudioControl
 public protocol AudioControllerProtocol: Sendable {
     /// Plays the phase transition sound if enabled in settings.
     @MainActor func playPhaseTransitionSound() async
+    /// Plays a specific chime sound for preview purposes.
+    @MainActor func playChime(named chimeName: String) async
 }
 
 /// iOS implementation of audio playback using AVFoundation.
 public final class AudioController: AudioControllerProtocol, @unchecked Sendable {
     private var audioPlayer: AVAudioPlayer?
+    private var currentChimeName: String?
 
     public init() {
-        prepareAudio()
+        loadChime(named: SettingsManager.shared.selectedChimeName)
     }
 
-    private func prepareAudio() {
-        // Try multiple file formats
+    private func loadChime(named chimeName: String) {
         let soundFormats = ["wav", "mp3", "m4a", "caf", "aiff"]
 
         for format in soundFormats {
-            if let url = Bundle.main.url(forResource: "chime", withExtension: format) {
+            if let url = Bundle.main.url(forResource: chimeName, withExtension: format) {
                 do {
                     audioPlayer = try AVAudioPlayer(contentsOf: url)
                     audioPlayer?.prepareToPlay()
-                    logger.info("Loaded chime sound: chime.\(format)")
+                    currentChimeName = chimeName
+                    logger.info("Loaded chime sound: \(chimeName).\(format)")
                     return
                 } catch {
-                    logger.error("Failed to load chime.\(format): \(error.localizedDescription)")
+                    logger.error("Failed to load \(chimeName).\(format): \(error.localizedDescription)")
                 }
             }
         }
 
-        logger.warning("No chime sound file found in bundle. Sound will not play.")
+        logger.warning("No chime sound file found for \(chimeName). Sound will not play.")
     }
 
     @MainActor
     public func playPhaseTransitionSound() async {
         guard SettingsManager.shared.isSoundEnabled else { return }
+        let selectedChime = SettingsManager.shared.selectedChimeName
+        if currentChimeName != selectedChime {
+            loadChime(named: selectedChime)
+        }
+        audioPlayer?.currentTime = 0
+        audioPlayer?.play()
+    }
+
+    @MainActor
+    public func playChime(named chimeName: String) async {
+        loadChime(named: chimeName)
         audioPlayer?.currentTime = 0
         audioPlayer?.play()
     }

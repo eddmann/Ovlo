@@ -12,6 +12,7 @@ public final class SettingsManager: @unchecked Sendable {
         static let affirmationsEnabled = "affirmationsEnabled"
         static let musicEnabled = "musicEnabled"
         static let selectedTrackName = "selectedTrackName"
+        static let selectedChimeName = "selectedChimeName"
     }
 
     /// Available bundled music tracks.
@@ -22,8 +23,17 @@ public final class SettingsManager: @unchecked Sendable {
         "inner-stillness",
         "tidal-serenity",
         "tranquil-meadow",
-        "whispering-brook",
-        "woodland-rainfall"
+        "whispering-brook"
+    ]
+
+    /// Available bundled chime sounds.
+    public static let availableChimes = [
+        "tibetan-bell",
+        "crystal-chime",
+        "zen-garden",
+        "temple-gong",
+        "twin-bells",
+        "bright-bell"
     ]
 
     private init() {
@@ -66,5 +76,12 @@ public final class SettingsManager: @unchecked Sendable {
     public var selectedTrackName: String {
         get { defaults.string(forKey: Keys.selectedTrackName) ?? "inner-stillness" }
         set { defaults.set(newValue, forKey: Keys.selectedTrackName) }
+    }
+
+    /// The name of the selected chime sound.
+    /// Defaults to "tibetan-bell" for new users.
+    public var selectedChimeName: String {
+        get { defaults.string(forKey: Keys.selectedChimeName) ?? "tibetan-bell" }
+        set { defaults.set(newValue, forKey: Keys.selectedChimeName) }
     }
 }

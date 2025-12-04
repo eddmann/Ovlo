@@ -9,7 +9,18 @@ public final class SettingsManager: @unchecked Sendable {
     private enum Keys {
         static let soundEnabled = "soundEnabled"
         static let hapticEnabled = "hapticEnabled"
+        static let selectedChimeName = "selectedChimeName"
     }
+
+    /// Available bundled chime sounds.
+    public static let availableChimes = [
+        "tibetan-bell",
+        "crystal-chime",
+        "zen-garden",
+        "temple-gong",
+        "twin-bells",
+        "bright-bell"
+    ]
 
     private init() {
         // Default haptic to true if not set
@@ -30,5 +41,12 @@ public final class SettingsManager: @unchecked Sendable {
     public var isHapticEnabled: Bool {
         get { defaults.bool(forKey: Keys.hapticEnabled) }
         set { defaults.set(newValue, forKey: Keys.hapticEnabled) }
+    }
+
+    /// The name of the selected chime sound.
+    /// Defaults to "tibetan-bell" for new users.
+    public var selectedChimeName: String {
+        get { defaults.string(forKey: Keys.selectedChimeName) ?? "tibetan-bell" }
+        set { defaults.set(newValue, forKey: Keys.selectedChimeName) }
     }
 }

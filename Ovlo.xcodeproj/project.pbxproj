@@ -12,10 +12,19 @@
 		6840F2222EE0876A00592639 /* inner-stillness.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6840F21B2EE0876A00592639 /* inner-stillness.mp3 */; };
 		6840F2232EE0876A00592639 /* tidal-serenity.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6840F21C2EE0876A00592639 /* tidal-serenity.mp3 */; };
 		6840F2242EE0876A00592639 /* tranquil-meadow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6840F21D2EE0876A00592639 /* tranquil-meadow.mp3 */; };
-		6840F2252EE0876A00592639 /* woodland-rainfall.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6840F21F2EE0876A00592639 /* woodland-rainfall.mp3 */; };
 		6840F2262EE0876A00592639 /* whispering-brook.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6840F21E2EE0876A00592639 /* whispering-brook.mp3 */; };
 		6840F2272EE0876A00592639 /* dawn-chorus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6840F2182EE0876A00592639 /* dawn-chorus.mp3 */; };
-		68C369972EDF057A0058BF31 /* chime.wav in Resources */ = {isa = PBXBuildFile; fileRef = 68C369962EDF057A0058BF31 /* chime.wav */; };
+		68561E3C2EE1C5450020E9B0 /* crystal-chime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68561E372EE1C5450020E9B0 /* crystal-chime.mp3 */; };
+		68561E3D2EE1C5450020E9B0 /* temple-gong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68561E392EE1C5450020E9B0 /* temple-gong.mp3 */; };
+		68561E3E2EE1C5450020E9B0 /* bright-bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68561E3B2EE1C5450020E9B0 /* bright-bell.mp3 */; };
+		68561E3F2EE1C5450020E9B0 /* zen-garden.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68561E382EE1C5450020E9B0 /* zen-garden.mp3 */; };
+		68561E402EE1C5450020E9B0 /* twin-bells.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68561E3A2EE1C5450020E9B0 /* twin-bells.mp3 */; };
+		68C369972EDF057A0058BF31 /* tibetan-bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68C369962EDF057A0058BF31 /* tibetan-bell.mp3 */; };
+		68CHIME013 /* crystal-chime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68CHIME014 /* crystal-chime.mp3 */; };
+		68CHIME015 /* zen-garden.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68CHIME016 /* zen-garden.mp3 */; };
+		68CHIME017 /* temple-gong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68CHIME018 /* temple-gong.mp3 */; };
+		68CHIME021 /* twin-bells.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68CHIME019 /* twin-bells.mp3 */; };
+		68CHIME022 /* bright-bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68CHIME020 /* bright-bell.mp3 */; };
 		68EC6CAAAA00011 /* BreathingEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CAAAA00002 /* BreathingEngine.swift */; };
 		68EC6CAAAA00012 /* BreathingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CAAAA00003 /* BreathingState.swift */; };
 		68EC6CAAAA00013 /* ClockProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CAAAA00004 /* ClockProtocol.swift */; };
@@ -44,7 +53,7 @@
 		68EC6CFD2ED4B816009E99EE /* BreathingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CF62ED4B816009E99EE /* BreathingSession.swift */; };
 		68EC6CWWW00001 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CWWW00002 /* SettingsManager.swift */; };
 		68EC6CWWW00003 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6CWWW00004 /* AudioController.swift */; };
-		68EC6CWWW00005 /* chime.wav in Resources */ = {isa = PBXBuildFile; fileRef = 68EC6CWWW00006 /* chime.wav */; };
+		68EC6CWWW00005 /* tibetan-bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68EC6CWWW00006 /* tibetan-bell.mp3 */; };
 		68EC6D0C2ED4BBFE009E99EE /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D0B2ED4BBFE009E99EE /* StartView.swift */; };
 		68EC6D202ED4C000009E99EE /* BreathingEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D082ED4B83B009E99EE /* BreathingEngineTests.swift */; };
 		68EC6D232ED4C000009E99EE /* TestClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6D002ED4B83B009E99EE /* TestClock.swift */; };
@@ -118,8 +127,17 @@
 		6840F21C2EE0876A00592639 /* tidal-serenity.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "tidal-serenity.mp3"; sourceTree = "<group>"; };
 		6840F21D2EE0876A00592639 /* tranquil-meadow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "tranquil-meadow.mp3"; sourceTree = "<group>"; };
 		6840F21E2EE0876A00592639 /* whispering-brook.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "whispering-brook.mp3"; sourceTree = "<group>"; };
-		6840F21F2EE0876A00592639 /* woodland-rainfall.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "woodland-rainfall.mp3"; sourceTree = "<group>"; };
-		68C369962EDF057A0058BF31 /* chime.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime.wav; sourceTree = "<group>"; };
+		68561E372EE1C5450020E9B0 /* crystal-chime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "crystal-chime.mp3"; sourceTree = "<group>"; };
+		68561E382EE1C5450020E9B0 /* zen-garden.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "zen-garden.mp3"; sourceTree = "<group>"; };
+		68561E392EE1C5450020E9B0 /* temple-gong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "temple-gong.mp3"; sourceTree = "<group>"; };
+		68561E3A2EE1C5450020E9B0 /* twin-bells.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "twin-bells.mp3"; sourceTree = "<group>"; };
+		68561E3B2EE1C5450020E9B0 /* bright-bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bright-bell.mp3"; sourceTree = "<group>"; };
+		68C369962EDF057A0058BF31 /* tibetan-bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "tibetan-bell.mp3"; sourceTree = "<group>"; };
+		68CHIME014 /* crystal-chime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "crystal-chime.mp3"; sourceTree = "<group>"; };
+		68CHIME016 /* zen-garden.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "zen-garden.mp3"; sourceTree = "<group>"; };
+		68CHIME018 /* temple-gong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "temple-gong.mp3"; sourceTree = "<group>"; };
+		68CHIME019 /* twin-bells.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "twin-bells.mp3"; sourceTree = "<group>"; };
+		68CHIME020 /* bright-bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bright-bell.mp3"; sourceTree = "<group>"; };
 		68EC6CAAAA00002 /* BreathingEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingEngine.swift; sourceTree = "<group>"; };
 		68EC6CAAAA00003 /* BreathingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingState.swift; sourceTree = "<group>"; };
 		68EC6CAAAA00004 /* ClockProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockProtocol.swift; sourceTree = "<group>"; };
@@ -147,7 +165,7 @@
 		68EC6CF62ED4B816009E99EE /* BreathingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingSession.swift; sourceTree = "<group>"; };
 		68EC6CWWW00002 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		68EC6CWWW00004 /* AudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
-		68EC6CWWW00006 /* chime.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime.wav; sourceTree = "<group>"; };
+		68EC6CWWW00006 /* tibetan-bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "tibetan-bell.mp3"; sourceTree = "<group>"; };
 		68EC6D002ED4B83B009E99EE /* TestClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestClock.swift; sourceTree = "<group>"; };
 		68EC6D082ED4B83B009E99EE /* BreathingEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingEngineTests.swift; sourceTree = "<group>"; };
 		68EC6D0B2ED4BBFE009E99EE /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
@@ -279,38 +297,6 @@
 			path = OvloPhone;
 			sourceTree = "<group>";
 		};
-		68EC6FAAAA00001 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				68EC6FAAAA00002 /* Music */,
-				68EC6FAAAA00003 /* Sounds */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		68EC6FAAAA00003 /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-				68C369962EDF057A0058BF31 /* chime.wav */,
-			);
-			path = Sounds;
-			sourceTree = "<group>";
-		};
-		68EC6FAAAA00002 /* Music */ = {
-			isa = PBXGroup;
-			children = (
-				6840F2182EE0876A00592639 /* dawn-chorus.mp3 */,
-				6840F2192EE0876A00592639 /* ethereal-horizons.mp3 */,
-				6840F21A2EE0876A00592639 /* golden-hour.mp3 */,
-				6840F21B2EE0876A00592639 /* inner-stillness.mp3 */,
-				6840F21C2EE0876A00592639 /* tidal-serenity.mp3 */,
-				6840F21D2EE0876A00592639 /* tranquil-meadow.mp3 */,
-				6840F21E2EE0876A00592639 /* whispering-brook.mp3 */,
-				6840F21F2EE0876A00592639 /* woodland-rainfall.mp3 */,
-			);
-			path = Music;
-			sourceTree = "<group>";
-		};
 		68EC6CDE2ED4B7F2009E99EE /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,11 +344,32 @@
 				68EC6CDE2ED4B7F2009E99EE /* Domain */,
 				68EC6CE02ED4B7F2009E99EE /* ViewModels */,
 				68EC6CE52ED4B7F2009E99EE /* Views */,
+				68WATCHRES00001 /* Resources */,
 				68EC6CE62ED4B7F2009E99EE /* Assets.xcassets */,
 				68EC6CE72ED4B7F2009E99EE /* OvloApp.swift */,
-				68EC6CWWW00006 /* chime.wav */,
 			);
 			path = OvloWatch;
+			sourceTree = "<group>";
+		};
+		68WATCHRES00001 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				68WATCHRES00002 /* Chimes */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		68WATCHRES00002 /* Chimes */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6CWWW00006 /* tibetan-bell.mp3 */,
+				68CHIME014 /* crystal-chime.mp3 */,
+				68CHIME016 /* zen-garden.mp3 */,
+				68CHIME018 /* temple-gong.mp3 */,
+				68CHIME019 /* twin-bells.mp3 */,
+				68CHIME020 /* bright-bell.mp3 */,
+			);
+			path = Chimes;
 			sourceTree = "<group>";
 		};
 		68EC6CF72ED4B816009E99EE /* Models */ = {
@@ -422,6 +429,42 @@
 				68EC6DBBBB00013 /* UserJourneyTests.swift */,
 			);
 			path = OvloPhoneTests;
+			sourceTree = "<group>";
+		};
+		68EC6FAAAA00001 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				68EC6FAAAA00002 /* Music */,
+				68EC6FAAAA00003 /* Chimes */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		68EC6FAAAA00002 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				6840F2182EE0876A00592639 /* dawn-chorus.mp3 */,
+				6840F2192EE0876A00592639 /* ethereal-horizons.mp3 */,
+				6840F21A2EE0876A00592639 /* golden-hour.mp3 */,
+				6840F21B2EE0876A00592639 /* inner-stillness.mp3 */,
+				6840F21C2EE0876A00592639 /* tidal-serenity.mp3 */,
+				6840F21D2EE0876A00592639 /* tranquil-meadow.mp3 */,
+				6840F21E2EE0876A00592639 /* whispering-brook.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		68EC6FAAAA00003 /* Chimes */ = {
+			isa = PBXGroup;
+			children = (
+				68C369962EDF057A0058BF31 /* tibetan-bell.mp3 */,
+				68561E372EE1C5450020E9B0 /* crystal-chime.mp3 */,
+				68561E382EE1C5450020E9B0 /* zen-garden.mp3 */,
+				68561E392EE1C5450020E9B0 /* temple-gong.mp3 */,
+				68561E3A2EE1C5450020E9B0 /* twin-bells.mp3 */,
+				68561E3B2EE1C5450020E9B0 /* bright-bell.mp3 */,
+			);
+			path = Chimes;
 			sourceTree = "<group>";
 		};
 		68F00ACF2ED8BC5800243E08 /* Frameworks */ = {
@@ -573,10 +616,14 @@
 				6840F2222EE0876A00592639 /* inner-stillness.mp3 in Resources */,
 				6840F2232EE0876A00592639 /* tidal-serenity.mp3 in Resources */,
 				6840F2242EE0876A00592639 /* tranquil-meadow.mp3 in Resources */,
-				6840F2252EE0876A00592639 /* woodland-rainfall.mp3 in Resources */,
+				68561E3C2EE1C5450020E9B0 /* crystal-chime.mp3 in Resources */,
+				68561E3D2EE1C5450020E9B0 /* temple-gong.mp3 in Resources */,
+				68561E3E2EE1C5450020E9B0 /* bright-bell.mp3 in Resources */,
+				68561E3F2EE1C5450020E9B0 /* zen-garden.mp3 in Resources */,
+				68561E402EE1C5450020E9B0 /* twin-bells.mp3 in Resources */,
 				6840F2262EE0876A00592639 /* whispering-brook.mp3 in Resources */,
 				6840F2272EE0876A00592639 /* dawn-chorus.mp3 in Resources */,
-				68C369972EDF057A0058BF31 /* chime.wav in Resources */,
+				68C369972EDF057A0058BF31 /* tibetan-bell.mp3 in Resources */,
 				68EC6CD92ED4B7D7009E99EE /* Assets.xcassets in Resources */,
 				68EC6D302EFC0001009E99EE /* LaunchScreen.storyboard in Resources */,
 			);
@@ -587,7 +634,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				68EC6CE92ED4B7F2009E99EE /* Assets.xcassets in Resources */,
-				68EC6CWWW00005 /* chime.wav in Resources */,
+				68EC6CWWW00005 /* tibetan-bell.mp3 in Resources */,
+				68CHIME013 /* crystal-chime.mp3 in Resources */,
+				68CHIME015 /* zen-garden.mp3 in Resources */,
+				68CHIME017 /* temple-gong.mp3 in Resources */,
+				68CHIME021 /* twin-bells.mp3 in Resources */,
+				68CHIME022 /* bright-bell.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
