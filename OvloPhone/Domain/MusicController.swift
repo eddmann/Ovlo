@@ -9,8 +9,12 @@ public protocol MusicControllerProtocol: Sendable {
     /// - Parameter trackName: The name of the bundled audio file (without extension)
     @MainActor func startPlayback(trackName: String) async
 
-    /// Stops music playback.
+    /// Stops music playback immediately.
     @MainActor func stopPlayback() async
+
+    /// Fades out the music over the specified duration, then stops playback.
+    /// - Parameter duration: The fade duration in seconds (default: 2.0)
+    @MainActor func fadeOutAndStop(duration: TimeInterval) async
 }
 
 /// iOS implementation of background music playback using AVFoundation.
@@ -65,5 +69,19 @@ public final class MusicController: MusicControllerProtocol, @unchecked Sendable
         audioPlayer?.stop()
         audioPlayer = nil
         logger.info("Stopped music playback")
+    }
+
+    @MainActor
+    public func fadeOutAndStop(duration: TimeInterval = 2.0) async {
+        guard let player = audioPlayer else { return }
+
+        // Use AVAudioPlayer's built-in fade
+        player.setVolume(0.0, fadeDuration: duration)
+
+        // Wait for fade to complete, then stop
+        try? await Task.sleep(for: .seconds(duration))
+        player.stop()
+        audioPlayer = nil
+        logger.info("Faded out and stopped music playback")
     }
 }
