@@ -75,13 +75,14 @@ public final class MusicController: MusicControllerProtocol, @unchecked Sendable
     public func fadeOutAndStop(duration: TimeInterval = 2.0) async {
         guard let player = audioPlayer else { return }
 
-        // Use AVAudioPlayer's built-in fade
-        player.setVolume(0.0, fadeDuration: duration)
+        // Detach so fade completes even if calling task is cancelled
+        Task.detached { @MainActor in
+            player.setVolume(0.0, fadeDuration: duration)
+            try? await Task.sleep(for: .seconds(duration))
+            player.stop()
+        }
 
-        // Wait for fade to complete, then stop
-        try? await Task.sleep(for: .seconds(duration))
-        player.stop()
         audioPlayer = nil
-        logger.info("Faded out and stopped music playback")
+        logger.info("Started fade out for music playback")
     }
 }
