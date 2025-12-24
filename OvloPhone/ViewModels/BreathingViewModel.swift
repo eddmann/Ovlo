@@ -101,7 +101,7 @@ public final class BreathingViewModel {
 
     public func stopSession() async {
         await engine.stop()
-        await musicController?.fadeOutAndStop(duration: 2.0)
+        await musicController?.fadeOutAndStop(duration: 10.0)
         progressTask?.cancel()
         progressTask = nil
         sessionStartTime = nil
@@ -114,7 +114,7 @@ public final class BreathingViewModel {
     /// Completes the session early, showing the completion screen instead of returning to ready.
     public func completeSessionEarly() async {
         await engine.stop()
-        await musicController?.fadeOutAndStop(duration: 2.0)
+        await musicController?.fadeOutAndStop(duration: 10.0)
         progressTask?.cancel()
         progressTask = nil
         currentState = .completed

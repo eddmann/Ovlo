@@ -13,7 +13,7 @@ public protocol MusicControllerProtocol: Sendable {
     @MainActor func stopPlayback() async
 
     /// Fades out the music over the specified duration, then stops playback.
-    /// - Parameter duration: The fade duration in seconds (default: 2.0)
+    /// - Parameter duration: The fade duration in seconds (default: 10.0)
     @MainActor func fadeOutAndStop(duration: TimeInterval) async
 }
 
@@ -72,7 +72,7 @@ public final class MusicController: MusicControllerProtocol, @unchecked Sendable
     }
 
     @MainActor
-    public func fadeOutAndStop(duration: TimeInterval = 2.0) async {
+    public func fadeOutAndStop(duration: TimeInterval = 10.0) async {
         guard let player = audioPlayer else { return }
 
         // Detach so fade completes even if calling task is cancelled
