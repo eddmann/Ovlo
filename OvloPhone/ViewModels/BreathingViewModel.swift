@@ -17,9 +17,9 @@ public final class BreathingViewModel {
     private(set) var elapsedSeconds: Int = 0
     private(set) var totalSeconds: Int = 0
     private(set) var currentAffirmation: String?
-    var selectedDuration: Int = 5
-    var selectedInhale: Int = 4
-    var selectedExhale: Int = 8
+    var selectedDuration: Int = SettingsManager.shared.breathingDuration
+    var selectedInhale: Int = SettingsManager.shared.breathingInhale
+    var selectedExhale: Int = SettingsManager.shared.breathingExhale
 
     var currentInhaleDuration: TimeInterval {
         currentSession?.inhaleDuration ?? TimeInterval(selectedInhale)
@@ -101,7 +101,7 @@ public final class BreathingViewModel {
 
     public func stopSession() async {
         await engine.stop()
-        await musicController?.fadeOutAndStop(duration: 10.0)
+        await musicController?.fadeOutAndStop(duration: 2.0)
         progressTask?.cancel()
         progressTask = nil
         sessionStartTime = nil
@@ -114,7 +114,7 @@ public final class BreathingViewModel {
     /// Completes the session early, showing the completion screen instead of returning to ready.
     public func completeSessionEarly() async {
         await engine.stop()
-        await musicController?.fadeOutAndStop(duration: 10.0)
+        await musicController?.fadeOutAndStop(duration: 2.0)
         progressTask?.cancel()
         progressTask = nil
         currentState = .completed

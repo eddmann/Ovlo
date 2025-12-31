@@ -8,6 +8,8 @@ import SwiftUI
 struct BreathingView: View {
     @State private var viewModel: BreathingViewModel
 
+    private let accentCyan = Color(red: 0.25, green: 0.95, blue: 0.88)
+
     init(viewModel: BreathingViewModel) {
         self.viewModel = viewModel
     }
@@ -33,6 +35,26 @@ struct BreathingView: View {
     // MARK: - Subviews
 
     private var breathingInterfaceView: some View {
+        Group {
+            if viewModel.currentState == .completed {
+                completionView
+            } else {
+                activeSessionView
+            }
+        }
+        .gesture(
+            viewModel.currentState.isActive ?
+                DragGesture(minimumDistance: 50)
+                    .onEnded { value in
+                        if value.translation.height < -50 {
+                            completeEarly()
+                        }
+                    }
+                : nil
+        )
+    }
+
+    private var activeSessionView: some View {
         GeometryReader { geometry in
             let minDimension = min(geometry.size.width, geometry.size.height)
             let circleSize = minDimension * 0.65
@@ -59,34 +81,45 @@ struct BreathingView: View {
                     .animation(.easeInOut, value: viewModel.currentState)
 
                 Spacer()
-
-                if viewModel.currentState == .completed {
-                    Button(action: returnToStart) {
-                        Text("Done")
-                            .font(.footnote)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 10)
-                            .background(Color.green)
-                            .cornerRadius(20)
-                    }
-                    .buttonStyle(.plain)
-                    .transition(.move(edge: .bottom).combined(with: .opacity))
-                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .gesture(
-            viewModel.currentState.isActive ?
-                DragGesture(minimumDistance: 50)
-                    .onEnded { value in
-                        if value.translation.height < -50 {
-                            completeEarly()
-                        }
-                    }
-                : nil
-        )
+    }
+
+    private var completionView: some View {
+        VStack(spacing: 12) {
+            Spacer()
+
+            Image(systemName: "wind")
+                .font(.system(size: 40))
+                .foregroundStyle(accentCyan)
+
+            Text("Session Complete")
+                .font(.headline)
+                .fontWeight(.semibold)
+                .foregroundStyle(.white)
+
+            Text("\(viewModel.totalSeconds / 60) \(viewModel.totalSeconds / 60 == 1 ? "min" : "mins")")
+                .font(.caption)
+                .foregroundStyle(.white.opacity(0.7))
+
+            Spacer()
+
+            Button(action: returnToStart) {
+                Text("Done")
+                    .font(.footnote)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(Color(red: 0.02, green: 0.08, blue: 0.18))
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 10)
+                    .background(
+                        Capsule()
+                            .fill(accentCyan)
+                    )
+            }
+            .buttonStyle(.plain)
+        }
+        .padding(.horizontal)
     }
 
     // MARK: - Computed Properties

@@ -2,19 +2,27 @@ import SwiftUI
 
 /// Main entry point for the Ovlo iOS app.
 ///
-/// This app runs breathing exercises directly on the iPhone.
+/// This app supports three session types: breathing, ambient music, and guided meditation.
 @main
 struct OvloiOSApp: App {
-    @State private var viewModel: BreathingViewModel
+    @State private var breathingViewModel: BreathingViewModel
+    @State private var ambientViewModel: AmbientMusicViewModel
+    @State private var guidedViewModel: GuidedMeditationViewModel
 
     init() {
         let engine = BreathingEngine(hapticController: HapticController())
-        self.viewModel = BreathingViewModel(engine: engine)
+        self.breathingViewModel = BreathingViewModel(engine: engine)
+        self.ambientViewModel = AmbientMusicViewModel()
+        self.guidedViewModel = GuidedMeditationViewModel()
     }
 
     var body: some Scene {
         WindowGroup {
-            BreathingView(viewModel: viewModel)
+            MainSessionView(
+                breathingViewModel: breathingViewModel,
+                ambientViewModel: ambientViewModel,
+                guidedViewModel: guidedViewModel
+            )
         }
     }
 }

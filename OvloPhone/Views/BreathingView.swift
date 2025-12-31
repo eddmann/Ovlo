@@ -1,38 +1,49 @@
 import SwiftUI
 
-/// Main view for the iOS breathing exercise interface.
+/// View for the iOS breathing exercise interface.
 ///
-/// Displays either:
-/// - Start screen with duration picker (when ready)
-/// - Breathing animation with progress and controls (when active/completed)
+/// Displays the breathing animation with progress and controls during an active session.
 struct BreathingView: View {
-    @State private var viewModel: BreathingViewModel
+    @Bindable var viewModel: BreathingViewModel
+    let onReturn: () -> Void
 
-    init(viewModel: BreathingViewModel) {
-        self.viewModel = viewModel
-    }
+    private let accentCyan = Color(red: 0.25, green: 0.95, blue: 0.88)
+
+    private let gradientColors: [Color] = [
+        Color(red: 0.02, green: 0.08, blue: 0.18),
+        Color(red: 0.04, green: 0.20, blue: 0.35),
+        Color(red: 0.05, green: 0.35, blue: 0.45)
+    ]
 
     var body: some View {
-        Group {
-            if viewModel.currentState == .ready {
-                StartView(
-                    selectedDuration: $viewModel.selectedDuration,
-                    selectedInhale: $viewModel.selectedInhale,
-                    selectedExhale: $viewModel.selectedExhale,
-                    onStart: startLocalSession
-                )
-                .transition(.opacity)
+        ZStack {
+            LinearGradient(
+                colors: gradientColors,
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
+
+            if viewModel.currentState == .completed {
+                completionView
             } else {
-                breathingInterfaceView
-                    .transition(.opacity)
+                activeSessionView
             }
         }
         .animation(.easeInOut, value: viewModel.currentState)
+        .gesture(
+            DragGesture(minimumDistance: 50)
+                .onEnded { value in
+                    if viewModel.currentState.isActive && value.translation.height < -50 {
+                        returnToStart()
+                    }
+                }
+        )
     }
 
     // MARK: - Subviews
 
-    private var breathingInterfaceView: some View {
+    private var activeSessionView: some View {
         GeometryReader { geometry in
             let minDimension = min(geometry.size.width, geometry.size.height)
             let circleSize = minDimension * 0.45
@@ -79,45 +90,20 @@ struct BreathingView: View {
 
                 Spacer()
 
-                if viewModel.currentState == .completed {
-                    Button(action: returnToStart) {
-                        Text("Done")
-                            .font(.headline)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: 200)
-                            .padding(.vertical, 14)
-                            .background(Color.green)
-                            .cornerRadius(25)
+                if viewModel.currentState.isActive {
+                    // Swipe hint
+                    VStack(spacing: 4) {
+                        Image(systemName: "chevron.up")
+                            .font(.caption)
+                        Text("Swipe up to stop")
+                            .font(.caption2)
                     }
-                    .buttonStyle(.plain)
-                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                    .foregroundStyle(.white.opacity(0.4))
+                    .padding(.bottom, 40)
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .background(
-            LinearGradient(
-                colors: [
-                    Color(red: 0.02, green: 0.08, blue: 0.18),
-                    Color(red: 0.04, green: 0.20, blue: 0.35),
-                    Color(red: 0.05, green: 0.35, blue: 0.45)
-                ],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .ignoresSafeArea()
-        )
-        .gesture(
-            viewModel.currentState.isActive ?
-                DragGesture(minimumDistance: 50)
-                    .onEnded { value in
-                        if value.translation.height < -50 {
-                            completeEarly()
-                        }
-                    }
-                : nil
-        )
     }
 
     // MARK: - Computed Properties
@@ -147,31 +133,56 @@ struct BreathingView: View {
         }
     }
 
+    private var completionView: some View {
+        VStack(spacing: 24) {
+            Spacer()
+
+            Image(systemName: "wind")
+                .font(.system(size: 80))
+                .foregroundStyle(accentCyan)
+
+            Text("Session Complete")
+                .font(.title)
+                .fontWeight(.semibold)
+                .foregroundStyle(.white)
+
+            Text("\(viewModel.totalSeconds / 60) \(viewModel.totalSeconds / 60 == 1 ? "minute" : "minutes") of breathing")
+                .font(.body)
+                .foregroundStyle(.white.opacity(0.7))
+
+            Spacer()
+
+            Button(action: returnToStart) {
+                Text("Done")
+                    .font(.headline)
+                    .foregroundStyle(Color(red: 0.02, green: 0.08, blue: 0.18))
+                    .frame(width: 120, height: 50)
+                    .background(
+                        Capsule()
+                            .fill(accentCyan)
+                    )
+            }
+            .buttonStyle(.plain)
+
+            Spacer()
+                .frame(height: 60)
+        }
+    }
+
     // MARK: - Actions
-
-    private func startLocalSession() {
-        Task {
-            await viewModel.startLocalSession()
-        }
-    }
-
-    private func completeEarly() {
-        Task {
-            await viewModel.completeSessionEarly()
-        }
-    }
 
     private func returnToStart() {
         Task {
             await viewModel.stopSession()
+            onReturn()
         }
     }
 }
 
 #Preview {
-    @Previewable @State var viewModel = BreathingViewModel(
+    let viewModel = BreathingViewModel(
         engine: BreathingEngine()
     )
 
-    BreathingView(viewModel: viewModel)
+    BreathingView(viewModel: viewModel) {}
 }

@@ -132,3 +132,11 @@ Temporary Items
 
 # AppCode
 .idea/
+
+# Audio assets (stored locally, not in repo)
+# Configure audio files via JSON config files in Resources folders
+*.mp3
+*.wav
+*.m4a
+*.aiff
+*.caf

@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		097586EE0C6C87A0A5ADD6B4 /* SessionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E547873DA0846CA094295C /* SessionType.swift */; };
+		178D8FB92F19F101E596E2A1 /* quiet-strength.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E2D62F695585F2601A0333C5 /* quiet-strength.mp3 */; };
+		26F85FE501925188BE067C01 /* GuidedMeditationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B114C3787DCC1390D40E08D /* GuidedMeditationViewModel.swift */; };
+		322BE83D0CAD0EAECDB02B76 /* DocumentPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8DE7C583721A62BA034FA0 /* DocumentPickerView.swift */; };
+		34C8C5AF968C87D4713FFDC5 /* morning-light.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 84E3328ACCD41F72EC13EF5E /* morning-light.mp3 */; };
+		513B76797CD6CBB7C54D9339 /* soft-embrace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA1387453D1019F53997D45B /* soft-embrace.mp3 */; };
+		5652A35202E6D9DCA564896E /* gentle-words.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6B5EB3216563AE50A69783E7 /* gentle-words.mp3 */; };
+		572E164639BB15AD464B70CA /* AmbientMusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F06C7C6F11E625EC7BD41F /* AmbientMusicViewModel.swift */; };
+		5E3134D9CCFB55A97909763F /* AmbientMusicViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D883ED2EF7C16D5C7E0CDAD /* AmbientMusicViewModelTests.swift */; };
 		6840F2202EE0876A00592639 /* ethereal-horizons.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6840F2192EE0876A00592639 /* ethereal-horizons.mp3 */; };
 		6840F2212EE0876A00592639 /* golden-hour.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6840F21A2EE0876A00592639 /* golden-hour.mp3 */; };
 		6840F2222EE0876A00592639 /* inner-stillness.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6840F21B2EE0876A00592639 /* inner-stillness.mp3 */; };
@@ -72,6 +81,25 @@
 		68EC6DBBBB00008 /* MockMusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6DBBBB00051 /* MockMusicController.swift */; };
 		68EC6EAAAA00001 /* MusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC6EAAAA00002 /* MusicController.swift */; };
 		68F00AD02ED8BC5800243E08 /* OvloWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 68F00ACE2ED8BBFE00243E08 /* OvloWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7EFBBEE30DFC5AE04BBB6087 /* MediaLibraryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C707BB992FC0F047AFF9F4 /* MediaLibraryController.swift */; };
+		87A39A9401E27B022B6BE9A9 /* GuidedMeditationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577BD6862EFA176C8AF63942 /* GuidedMeditationViewModelTests.swift */; };
+		903D2813D1648EB0B3B617AA /* GuidedSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABD7CD4B1B3B4B8979F597C /* GuidedSessionView.swift */; };
+		932901B6FDD61C0BE6BB9FD1 /* peaceful-journey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A808ECE4F434CF638AEAD173 /* peaceful-journey.mp3 */; };
+		A6A0057C632376061078FCF0 /* MainSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C07BB2BF11673DCCAC1D6D /* MainSessionView.swift */; };
+		AA909937E37D2D12DE606FE2 /* letting-go.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4DCFA3E52BB7BF2734C81C7C /* letting-go.mp3 */; };
+		ADB04FB34F2D4DF3BC306761 /* ocean-lullaby.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9038202E0E24D12088D565FD /* ocean-lullaby.mp3 */; };
+		B4344B1430E0DBDC12453023 /* AudioSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584608D9FAF0C3C2065F7E8 /* AudioSource.swift */; };
+		B9D103A48ECD39E0B9C9CF74 /* AmbientSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570A17C96A0999ABFA3E7CB4 /* AmbientSessionView.swift */; };
+		BA0C7538158E5CB331674D1B /* PlaybackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFC82F959625E6B44298650 /* PlaybackState.swift */; };
+		C554F52186F968C89D937F7B /* DocumentPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E04BE570FC4766D8173CF9 /* DocumentPickerController.swift */; };
+		C8B0D5D7F56398F4A75C7533 /* SessionTypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD058E8DC4FA0A4137F6D05 /* SessionTypePicker.swift */; };
+		E4C9091CCA3F2F59EDE7E03A /* ImportedAudioStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1134D31B891F68A689D3308 /* ImportedAudioStore.swift */; };
+		E90C08FC94A58B65680A6C14 /* MediaLibraryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E490D4C1275ECD75565453 /* MediaLibraryPickerView.swift */; };
+		68JSON00002 /* chimes.json in Resources */ = {isa = PBXBuildFile; fileRef = 68JSON00001 /* chimes.json */; };
+		68JSON00004 /* music.json in Resources */ = {isa = PBXBuildFile; fileRef = 68JSON00003 /* music.json */; };
+		68JSON00006 /* meditations.json in Resources */ = {isa = PBXBuildFile; fileRef = 68JSON00005 /* meditations.json */; };
+		68JSON00008 /* chimes.json in Resources */ = {isa = PBXBuildFile; fileRef = 68JSON00007 /* chimes.json */; };
+		68JSON00010 /* AudioConfigLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68JSON00009 /* AudioConfigLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +148,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0584608D9FAF0C3C2065F7E8 /* AudioSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AudioSource.swift; sourceTree = "<group>"; };
+		06E04BE570FC4766D8173CF9 /* DocumentPickerController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DocumentPickerController.swift; sourceTree = "<group>"; };
+		08E547873DA0846CA094295C /* SessionType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SessionType.swift; sourceTree = "<group>"; };
+		2C8DE7C583721A62BA034FA0 /* DocumentPickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DocumentPickerView.swift; sourceTree = "<group>"; };
+		3D883ED2EF7C16D5C7E0CDAD /* AmbientMusicViewModelTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AmbientMusicViewModelTests.swift; sourceTree = "<group>"; };
+		44E490D4C1275ECD75565453 /* MediaLibraryPickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MediaLibraryPickerView.swift; sourceTree = "<group>"; };
+		47C707BB992FC0F047AFF9F4 /* MediaLibraryController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MediaLibraryController.swift; sourceTree = "<group>"; };
+		4DCFA3E52BB7BF2734C81C7C /* letting-go.mp3 */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.mp3; path = "letting-go.mp3"; sourceTree = "<group>"; };
+		570A17C96A0999ABFA3E7CB4 /* AmbientSessionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AmbientSessionView.swift; sourceTree = "<group>"; };
+		577BD6862EFA176C8AF63942 /* GuidedMeditationViewModelTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuidedMeditationViewModelTests.swift; sourceTree = "<group>"; };
 		6840F2182EE0876A00592639 /* dawn-chorus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "dawn-chorus.mp3"; sourceTree = "<group>"; };
 		6840F2192EE0876A00592639 /* ethereal-horizons.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ethereal-horizons.mp3"; sourceTree = "<group>"; };
 		6840F21A2EE0876A00592639 /* golden-hour.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "golden-hour.mp3"; sourceTree = "<group>"; };
@@ -189,6 +227,24 @@
 		68F00ACE2ED8BBFE00243E08 /* OvloWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OvloWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F00AD32ED8BCAB00243E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		68F00AD42ED8BCF100243E08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6B114C3787DCC1390D40E08D /* GuidedMeditationViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuidedMeditationViewModel.swift; sourceTree = "<group>"; };
+		6B5EB3216563AE50A69783E7 /* gentle-words.mp3 */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.mp3; path = "gentle-words.mp3"; sourceTree = "<group>"; };
+		7FD058E8DC4FA0A4137F6D05 /* SessionTypePicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SessionTypePicker.swift; sourceTree = "<group>"; };
+		84E3328ACCD41F72EC13EF5E /* morning-light.mp3 */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.mp3; path = "morning-light.mp3"; sourceTree = "<group>"; };
+		8ABD7CD4B1B3B4B8979F597C /* GuidedSessionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuidedSessionView.swift; sourceTree = "<group>"; };
+		9038202E0E24D12088D565FD /* ocean-lullaby.mp3 */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.mp3; path = ocean-lullaby.mp3; sourceTree = "<group>"; };
+		A808ECE4F434CF638AEAD173 /* peaceful-journey.mp3 */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.mp3; path = "peaceful-journey.mp3"; sourceTree = "<group>"; };
+		C6C07BB2BF11673DCCAC1D6D /* MainSessionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainSessionView.swift; sourceTree = "<group>"; };
+		D7F06C7C6F11E625EC7BD41F /* AmbientMusicViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AmbientMusicViewModel.swift; sourceTree = "<group>"; };
+		DA1387453D1019F53997D45B /* soft-embrace.mp3 */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.mp3; path = "soft-embrace.mp3"; sourceTree = "<group>"; };
+		E2D62F695585F2601A0333C5 /* quiet-strength.mp3 */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.mp3; path = "quiet-strength.mp3"; sourceTree = "<group>"; };
+		EFFC82F959625E6B44298650 /* PlaybackState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PlaybackState.swift; sourceTree = "<group>"; };
+		F1134D31B891F68A689D3308 /* ImportedAudioStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImportedAudioStore.swift; sourceTree = "<group>"; };
+		68JSON00001 /* chimes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = chimes.json; sourceTree = "<group>"; };
+		68JSON00003 /* music.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = music.json; sourceTree = "<group>"; };
+		68JSON00005 /* meditations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = meditations.json; sourceTree = "<group>"; };
+		68JSON00007 /* chimes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = chimes.json; sourceTree = "<group>"; };
+		68JSON00009 /* AudioConfigLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioConfigLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +279,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A3470730BC0B32244DC9FC4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3D883ED2EF7C16D5C7E0CDAD /* AmbientMusicViewModelTests.swift */,
+				577BD6862EFA176C8AF63942 /* GuidedMeditationViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		68A7D7642ED4B08E0013DB96 = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +316,12 @@
 				68EC6CAAAA00019 /* IdleTimerController.swift */,
 				68EC6EAAAA00002 /* MusicController.swift */,
 				68EC6CAAAA00024 /* SettingsManager.swift */,
+				08E547873DA0846CA094295C /* SessionType.swift */,
+				0584608D9FAF0C3C2065F7E8 /* AudioSource.swift */,
+				EFFC82F959625E6B44298650 /* PlaybackState.swift */,
+				47C707BB992FC0F047AFF9F4 /* MediaLibraryController.swift */,
+				06E04BE570FC4766D8173CF9 /* DocumentPickerController.swift */,
+				F1134D31B891F68A689D3308 /* ImportedAudioStore.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -260,6 +331,9 @@
 			children = (
 				68EC6CAAAA00008 /* BreathingCircle.swift */,
 				68EC6CAAAA00009 /* StartView.swift */,
+				7FD058E8DC4FA0A4137F6D05 /* SessionTypePicker.swift */,
+				44E490D4C1275ECD75565453 /* MediaLibraryPickerView.swift */,
+				2C8DE7C583721A62BA034FA0 /* DocumentPickerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -268,6 +342,8 @@
 			isa = PBXGroup;
 			children = (
 				68EC6CAAAA00006 /* BreathingViewModel.swift */,
+				D7F06C7C6F11E625EC7BD41F /* AmbientMusicViewModel.swift */,
+				6B114C3787DCC1390D40E08D /* GuidedMeditationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -278,6 +354,9 @@
 				68EC6CAAAA00007 /* Components */,
 				68EC6CAAAA00030 /* AffirmationSettingsView.swift */,
 				68EC6CAAAA00010 /* BreathingView.swift */,
+				C6C07BB2BF11673DCCAC1D6D /* MainSessionView.swift */,
+				570A17C96A0999ABFA3E7CB4 /* AmbientSessionView.swift */,
+				8ABD7CD4B1B3B4B8979F597C /* GuidedSessionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -300,6 +379,7 @@
 		68EC6CDE2ED4B7F2009E99EE /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				68JSON00009 /* AudioConfigLoader.swift */,
 				68EC6CWWW00004 /* AudioController.swift */,
 				68EC6CDA2ED4B7F2009E99EE /* BreathingEngine.swift */,
 				68EC6CDB2ED4B7F2009E99EE /* BreathingState.swift */,
@@ -349,27 +429,6 @@
 				68EC6CE72ED4B7F2009E99EE /* OvloApp.swift */,
 			);
 			path = OvloWatch;
-			sourceTree = "<group>";
-		};
-		68WATCHRES00001 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				68WATCHRES00002 /* Chimes */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		68WATCHRES00002 /* Chimes */ = {
-			isa = PBXGroup;
-			children = (
-				68EC6CWWW00006 /* tibetan-bell.mp3 */,
-				68CHIME014 /* crystal-chime.mp3 */,
-				68CHIME016 /* zen-garden.mp3 */,
-				68CHIME018 /* temple-gong.mp3 */,
-				68CHIME019 /* twin-bells.mp3 */,
-				68CHIME020 /* bright-bell.mp3 */,
-			);
-			path = Chimes;
 			sourceTree = "<group>";
 		};
 		68EC6CF72ED4B816009E99EE /* Models */ = {
@@ -427,6 +486,7 @@
 				68EC6DBBBB00011 /* BreathingEngineTests.swift */,
 				68EC6DBBBB00012 /* BreathingViewModelTests.swift */,
 				68EC6DBBBB00013 /* UserJourneyTests.swift */,
+				0A3470730BC0B32244DC9FC4 /* ViewModels */,
 			);
 			path = OvloPhoneTests;
 			sourceTree = "<group>";
@@ -436,6 +496,7 @@
 			children = (
 				68EC6FAAAA00002 /* Music */,
 				68EC6FAAAA00003 /* Chimes */,
+				DAFEBB183584ECAF87F66DDD /* Meditations */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -443,6 +504,7 @@
 		68EC6FAAAA00002 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				68JSON00003 /* music.json */,
 				6840F2182EE0876A00592639 /* dawn-chorus.mp3 */,
 				6840F2192EE0876A00592639 /* ethereal-horizons.mp3 */,
 				6840F21A2EE0876A00592639 /* golden-hour.mp3 */,
@@ -450,6 +512,7 @@
 				6840F21C2EE0876A00592639 /* tidal-serenity.mp3 */,
 				6840F21D2EE0876A00592639 /* tranquil-meadow.mp3 */,
 				6840F21E2EE0876A00592639 /* whispering-brook.mp3 */,
+				9038202E0E24D12088D565FD /* ocean-lullaby.mp3 */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -457,6 +520,7 @@
 		68EC6FAAAA00003 /* Chimes */ = {
 			isa = PBXGroup;
 			children = (
+				68JSON00001 /* chimes.json */,
 				68C369962EDF057A0058BF31 /* tibetan-bell.mp3 */,
 				68561E372EE1C5450020E9B0 /* crystal-chime.mp3 */,
 				68561E382EE1C5450020E9B0 /* zen-garden.mp3 */,
@@ -472,6 +536,42 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		68WATCHRES00001 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				68WATCHRES00002 /* Chimes */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		68WATCHRES00002 /* Chimes */ = {
+			isa = PBXGroup;
+			children = (
+				68JSON00007 /* chimes.json */,
+				68EC6CWWW00006 /* tibetan-bell.mp3 */,
+				68CHIME014 /* crystal-chime.mp3 */,
+				68CHIME016 /* zen-garden.mp3 */,
+				68CHIME018 /* temple-gong.mp3 */,
+				68CHIME019 /* twin-bells.mp3 */,
+				68CHIME020 /* bright-bell.mp3 */,
+			);
+			path = Chimes;
+			sourceTree = "<group>";
+		};
+		DAFEBB183584ECAF87F66DDD /* Meditations */ = {
+			isa = PBXGroup;
+			children = (
+				68JSON00005 /* meditations.json */,
+				6B5EB3216563AE50A69783E7 /* gentle-words.mp3 */,
+				E2D62F695585F2601A0333C5 /* quiet-strength.mp3 */,
+				84E3328ACCD41F72EC13EF5E /* morning-light.mp3 */,
+				A808ECE4F434CF638AEAD173 /* peaceful-journey.mp3 */,
+				DA1387453D1019F53997D45B /* soft-embrace.mp3 */,
+				4DCFA3E52BB7BF2734C81C7C /* letting-go.mp3 */,
+			);
+			path = Meditations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -493,8 +593,6 @@
 				68F00AD22ED8BC5800243E08 /* PBXTargetDependency */,
 			);
 			name = OvloPhone;
-			packageProductDependencies = (
-			);
 			productName = OvloPhone;
 			productReference = 68F00ACD2ED8BBFE00243E08 /* OvloPhone.app */;
 			productType = "com.apple.product-type.application";
@@ -512,8 +610,6 @@
 			dependencies = (
 			);
 			name = OvloWatch;
-			packageProductDependencies = (
-			);
 			productName = OvloWatch;
 			productReference = 68F00ACE2ED8BBFE00243E08 /* OvloWatch.app */;
 			productType = "com.apple.product-type.application";
@@ -532,8 +628,6 @@
 				68EC6D112ED4C000009E99EE /* PBXTargetDependency */,
 			);
 			name = OvloWatchTests;
-			packageProductDependencies = (
-			);
 			productName = OvloWatchTests;
 			productReference = 68EC6D0E2ED4C000009E99EE /* OvloWatchTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -552,8 +646,6 @@
 				68EC6DBBBB00031 /* PBXTargetDependency */,
 			);
 			name = OvloPhoneTests;
-			packageProductDependencies = (
-			);
 			productName = OvloPhoneTests;
 			productReference = 68EC6DBBBB00010 /* OvloPhoneTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -611,6 +703,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68JSON00002 /* chimes.json in Resources */,
+				68JSON00004 /* music.json in Resources */,
+				68JSON00006 /* meditations.json in Resources */,
 				6840F2202EE0876A00592639 /* ethereal-horizons.mp3 in Resources */,
 				6840F2212EE0876A00592639 /* golden-hour.mp3 in Resources */,
 				6840F2222EE0876A00592639 /* inner-stillness.mp3 in Resources */,
@@ -626,6 +721,13 @@
 				68C369972EDF057A0058BF31 /* tibetan-bell.mp3 in Resources */,
 				68EC6CD92ED4B7D7009E99EE /* Assets.xcassets in Resources */,
 				68EC6D302EFC0001009E99EE /* LaunchScreen.storyboard in Resources */,
+				5652A35202E6D9DCA564896E /* gentle-words.mp3 in Resources */,
+				178D8FB92F19F101E596E2A1 /* quiet-strength.mp3 in Resources */,
+				34C8C5AF968C87D4713FFDC5 /* morning-light.mp3 in Resources */,
+				932901B6FDD61C0BE6BB9FD1 /* peaceful-journey.mp3 in Resources */,
+				513B76797CD6CBB7C54D9339 /* soft-embrace.mp3 in Resources */,
+				AA909937E37D2D12DE606FE2 /* letting-go.mp3 in Resources */,
+				ADB04FB34F2D4DF3BC306761 /* ocean-lullaby.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +735,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68JSON00008 /* chimes.json in Resources */,
 				68EC6CE92ED4B7F2009E99EE /* Assets.xcassets in Resources */,
 				68EC6CWWW00005 /* tibetan-bell.mp3 in Resources */,
 				68CHIME013 /* crystal-chime.mp3 in Resources */,
@@ -680,6 +783,20 @@
 				68EC6CAAAA00029 /* AffirmationSettingsView.swift in Sources */,
 				68EC6CAAAA00018 /* BreathingView.swift in Sources */,
 				68EC6CD82ED4B7D7009E99EE /* OvloApp.swift in Sources */,
+				097586EE0C6C87A0A5ADD6B4 /* SessionType.swift in Sources */,
+				B4344B1430E0DBDC12453023 /* AudioSource.swift in Sources */,
+				BA0C7538158E5CB331674D1B /* PlaybackState.swift in Sources */,
+				572E164639BB15AD464B70CA /* AmbientMusicViewModel.swift in Sources */,
+				26F85FE501925188BE067C01 /* GuidedMeditationViewModel.swift in Sources */,
+				A6A0057C632376061078FCF0 /* MainSessionView.swift in Sources */,
+				B9D103A48ECD39E0B9C9CF74 /* AmbientSessionView.swift in Sources */,
+				903D2813D1648EB0B3B617AA /* GuidedSessionView.swift in Sources */,
+				C8B0D5D7F56398F4A75C7533 /* SessionTypePicker.swift in Sources */,
+				7EFBBEE30DFC5AE04BBB6087 /* MediaLibraryController.swift in Sources */,
+				C554F52186F968C89D937F7B /* DocumentPickerController.swift in Sources */,
+				E4C9091CCA3F2F59EDE7E03A /* ImportedAudioStore.swift in Sources */,
+				E90C08FC94A58B65680A6C14 /* MediaLibraryPickerView.swift in Sources */,
+				322BE83D0CAD0EAECDB02B76 /* DocumentPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,6 +804,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68JSON00010 /* AudioConfigLoader.swift in Sources */,
 				68EC6CFA2ED4B816009E99EE /* BreathingSession.swift in Sources */,
 				68EC6CEA2ED4B7F2009E99EE /* BreathingState.swift in Sources */,
 				68EC6CEB2ED4B7F2009E99EE /* BreathingViewModel.swift in Sources */,
@@ -727,6 +845,8 @@
 				68EC6DBBBB00005 /* MockIdleTimerController.swift in Sources */,
 				68EC6DBBBB00006 /* MockAudioController.swift in Sources */,
 				68EC6DBBBB00008 /* MockMusicController.swift in Sources */,
+				5E3134D9CCFB55A97909763F /* AmbientMusicViewModelTests.swift in Sources */,
+				87A39A9401E27B022B6BE9A9 /* GuidedMeditationViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

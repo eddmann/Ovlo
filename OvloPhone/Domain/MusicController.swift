@@ -9,6 +9,25 @@ public protocol MusicControllerProtocol: Sendable {
     /// - Parameter trackName: The name of the bundled audio file (without extension)
     @MainActor func startPlayback(trackName: String) async
 
+    /// Starts playing audio from URL in a loop.
+    /// - Parameter url: The URL of the audio file to play
+    @MainActor func startPlayback(url: URL) async
+
+    /// Starts playing audio once (no loop) and calls completion when finished.
+    /// - Parameters:
+    ///   - url: The URL of the audio file to play
+    ///   - onComplete: Called when playback finishes naturally
+    @MainActor func playOnce(url: URL, onComplete: @escaping @Sendable () -> Void) async
+
+    /// Gets the duration of an audio file at the given URL.
+    /// - Parameter url: The URL of the audio file
+    /// - Returns: The duration in seconds, or nil if unavailable
+    @MainActor func getDuration(for url: URL) async -> TimeInterval?
+
+    /// Gets the current playback time.
+    /// - Returns: The current time in seconds
+    @MainActor func getCurrentTime() async -> TimeInterval
+
     /// Stops music playback immediately.
     @MainActor func stopPlayback() async
 
@@ -18,10 +37,12 @@ public protocol MusicControllerProtocol: Sendable {
 }
 
 /// iOS implementation of background music playback using AVFoundation.
-public final class MusicController: MusicControllerProtocol, @unchecked Sendable {
+public final class MusicController: NSObject, MusicControllerProtocol, AVAudioPlayerDelegate, @unchecked Sendable {
     private var audioPlayer: AVAudioPlayer?
+    private var onPlaybackComplete: (@Sendable () -> Void)?
 
-    public init() {
+    public override init() {
+        super.init()
         configureAudioSession()
     }
 
@@ -65,6 +86,24 @@ public final class MusicController: MusicControllerProtocol, @unchecked Sendable
     }
 
     @MainActor
+    public func startPlayback(url: URL) async {
+        // Stop any existing playback
+        audioPlayer?.stop()
+        audioPlayer = nil
+        onPlaybackComplete = nil
+
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.numberOfLoops = -1 // Loop indefinitely
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.play()
+            logger.info("Started music playback from URL: \(url.lastPathComponent)")
+        } catch {
+            logger.error("Failed to play audio from URL: \(error.localizedDescription)")
+        }
+    }
+
+    @MainActor
     public func stopPlayback() async {
         audioPlayer?.stop()
         audioPlayer = nil
@@ -83,6 +122,53 @@ public final class MusicController: MusicControllerProtocol, @unchecked Sendable
         }
 
         audioPlayer = nil
+        onPlaybackComplete = nil
         logger.info("Started fade out for music playback")
+    }
+
+    @MainActor
+    public func playOnce(url: URL, onComplete: @escaping @Sendable () -> Void) async {
+        // Stop any existing playback
+        audioPlayer?.stop()
+        audioPlayer = nil
+        onPlaybackComplete = nil
+
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.numberOfLoops = 0 // Play once
+            audioPlayer?.delegate = self
+            audioPlayer?.prepareToPlay()
+            onPlaybackComplete = onComplete
+            audioPlayer?.play()
+            logger.info("Started single playback: \(url.lastPathComponent)")
+        } catch {
+            logger.error("Failed to play audio: \(error.localizedDescription)")
+        }
+    }
+
+    @MainActor
+    public func getDuration(for url: URL) async -> TimeInterval? {
+        do {
+            let player = try AVAudioPlayer(contentsOf: url)
+            return player.duration
+        } catch {
+            logger.error("Failed to get duration for \(url.lastPathComponent): \(error.localizedDescription)")
+            return nil
+        }
+    }
+
+    @MainActor
+    public func getCurrentTime() async -> TimeInterval {
+        return audioPlayer?.currentTime ?? 0
+    }
+
+    // MARK: - AVAudioPlayerDelegate
+
+    public func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        if flag {
+            logger.info("Audio playback completed successfully")
+            onPlaybackComplete?()
+        }
+        onPlaybackComplete = nil
     }
 }

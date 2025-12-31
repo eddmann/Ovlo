@@ -10,17 +10,16 @@ public final class SettingsManager: @unchecked Sendable {
         static let soundEnabled = "soundEnabled"
         static let hapticEnabled = "hapticEnabled"
         static let selectedChimeName = "selectedChimeName"
+        // Breathing mode
+        static let breathingDuration = "breathingDuration"
+        static let breathingInhale = "breathingInhale"
+        static let breathingExhale = "breathingExhale"
     }
 
-    /// Available bundled chime sounds.
-    public static let availableChimes = [
-        "tibetan-bell",
-        "crystal-chime",
-        "zen-garden",
-        "temple-gong",
-        "twin-bells",
-        "bright-bell"
-    ]
+    /// Available bundled chimes loaded from chimes.json.
+    public static var availableChimes: [AudioConfigEntry] {
+        AudioConfigLoader.chimes
+    }
 
     private init() {
         // Default haptic to true if not set
@@ -44,9 +43,41 @@ public final class SettingsManager: @unchecked Sendable {
     }
 
     /// The name of the selected chime sound.
-    /// Defaults to "tibetan-bell" for new users.
+    /// Defaults to the first entry in chimes.json.
     public var selectedChimeName: String {
-        get { defaults.string(forKey: Keys.selectedChimeName) ?? "tibetan-bell" }
+        get { defaults.string(forKey: Keys.selectedChimeName) ?? AudioConfigLoader.defaultChimeId }
         set { defaults.set(newValue, forKey: Keys.selectedChimeName) }
+    }
+
+    // MARK: - Breathing Mode
+
+    /// Duration for breathing sessions in minutes.
+    /// Defaults to 5 minutes for new users.
+    public var breathingDuration: Int {
+        get {
+            let value = defaults.integer(forKey: Keys.breathingDuration)
+            return value > 0 ? value : 5
+        }
+        set { defaults.set(newValue, forKey: Keys.breathingDuration) }
+    }
+
+    /// Inhale duration in seconds.
+    /// Defaults to 4 seconds for new users.
+    public var breathingInhale: Int {
+        get {
+            let value = defaults.integer(forKey: Keys.breathingInhale)
+            return value > 0 ? value : 4
+        }
+        set { defaults.set(newValue, forKey: Keys.breathingInhale) }
+    }
+
+    /// Exhale duration in seconds.
+    /// Defaults to 8 seconds for new users.
+    public var breathingExhale: Int {
+        get {
+            let value = defaults.integer(forKey: Keys.breathingExhale)
+            return value > 0 ? value : 8
+        }
+        set { defaults.set(newValue, forKey: Keys.breathingExhale) }
     }
 }

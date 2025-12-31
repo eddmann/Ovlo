@@ -126,6 +126,9 @@ struct SettingsView: View {
                 } label: {
                     LabeledContent("Duration", value: "\(selectedDuration) min")
                 }
+                .onChange(of: selectedDuration) { _, newValue in
+                    SettingsManager.shared.breathingDuration = newValue
+                }
 
                 NavigationLink {
                     SelectionList(
@@ -136,6 +139,9 @@ struct SettingsView: View {
                 } label: {
                     LabeledContent("Inhale", value: "\(selectedInhale)s")
                 }
+                .onChange(of: selectedInhale) { _, newValue in
+                    SettingsManager.shared.breathingInhale = newValue
+                }
 
                 NavigationLink {
                     SelectionList(
@@ -145,6 +151,9 @@ struct SettingsView: View {
                     ) { "\($0)s" }
                 } label: {
                     LabeledContent("Exhale", value: "\(selectedExhale)s")
+                }
+                .onChange(of: selectedExhale) { _, newValue in
+                    SettingsManager.shared.breathingExhale = newValue
                 }
 
                 Section {
@@ -180,15 +189,7 @@ struct SettingsView: View {
     }
 
     private func chimeDisplayName(_ chimeName: String) -> String {
-        switch chimeName {
-        case "tibetan-bell": return "Tibetan Bell"
-        case "crystal-chime": return "Crystal Chime"
-        case "zen-garden": return "Zen Garden"
-        case "temple-gong": return "Temple Gong"
-        case "twin-bells": return "Twin Bells"
-        case "bright-bell": return "Bright Bell"
-        default: return chimeName
-        }
+        AudioConfigLoader.chimes.first { $0.id == chimeName }?.title ?? chimeName
     }
 }
 
@@ -198,29 +199,20 @@ struct ChimeSelectionView: View {
 
     @Environment(\.dismiss) private var dismiss
 
-    private let chimeOptions = [
-        ("tibetan-bell", "Tibetan Bell"),
-        ("crystal-chime", "Crystal Chime"),
-        ("zen-garden", "Zen Garden"),
-        ("temple-gong", "Temple Gong"),
-        ("twin-bells", "Twin Bells"),
-        ("bright-bell", "Bright Bell")
-    ]
-
     var body: some View {
         List {
-            ForEach(chimeOptions, id: \.0) { (id, name) in
+            ForEach(AudioConfigLoader.chimes, id: \.id) { chime in
                 Button {
-                    selectedChimeName = id
-                    SettingsManager.shared.selectedChimeName = id
+                    selectedChimeName = chime.id
+                    SettingsManager.shared.selectedChimeName = chime.id
                     Task {
-                        await chimePreviewController.playChime(named: id)
+                        await chimePreviewController.playChime(named: chime.id)
                     }
                 } label: {
                     HStack {
-                        Text(name)
+                        Text(chime.title)
                         Spacer()
-                        if id == selectedChimeName {
+                        if chime.id == selectedChimeName {
                             Image(systemName: "checkmark")
                                 .foregroundStyle(.green)
                         }
