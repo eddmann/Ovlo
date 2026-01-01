@@ -6,14 +6,19 @@ Find calm.
 
 ## Features
 
-- **Guided breathing exercises** - Smooth animated circle that expands and contracts to guide your breathing rhythm
-- **Customizable timing** - Adjust inhale and exhale durations (4-12s each) and session length (1-15 min)
-- **Sound & haptic feedback** - Optional chime and vibration mark each breath transition (toggleable in settings)
-- **Progress tracking** - Visual progress ring shows session completion with countdown timer
-- **Screen stays active** - Display remains on during sessions (always-on mode on Apple Watch)
-- **Guided meditations** (iOS) - Play meditation audio with progress tracking
-- **Ambient music** (iOS) - Timed music sessions with optional rotating affirmations
-- **Custom audio support** - Add your own chimes, music tracks, and meditations
+### iOS
+- **Breathe** - Animated circle guides inhale/exhale with optional music and affirmations
+- **Guided** - Play meditation audio with progress tracking
+- **Music** - Timed ambient music with optional affirmations
+- Add your own chimes, music, and meditations (see [Custom Audio](#custom-audio))
+- Import audio from Files or Apple Music
+- Haptic feedback on breath transitions
+
+### watchOS
+- Guided breathing with same customization as iOS
+- Background sessions continue with wrist lowered
+- Always-on display support
+- Chimes and haptic feedback
 
 ## In Action
 
