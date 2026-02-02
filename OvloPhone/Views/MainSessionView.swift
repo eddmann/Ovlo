@@ -9,6 +9,11 @@ struct MainSessionView: View {
     @State var ambientViewModel: AmbientMusicViewModel
     @State var guidedViewModel: GuidedMeditationViewModel
 
+    #if DEBUG
+    var demoSessionType: SessionType?
+    @State private var hasAppliedDemoMode = false
+    #endif
+
     @State private var selectedSessionType: SessionType = SettingsManager.shared.selectedSessionType
     @State private var activeSession: ActiveSession = .none
 
@@ -33,7 +38,30 @@ struct MainSessionView: View {
             }
         }
         .animation(.easeInOut(duration: 0.3), value: activeSession)
+        #if DEBUG
+        .onAppear {
+            applyDemoModeIfNeeded()
+        }
+        #endif
     }
+
+    #if DEBUG
+    // MARK: - Demo Mode
+
+    private func applyDemoModeIfNeeded() {
+        guard !hasAppliedDemoMode, let sessionType = demoSessionType else { return }
+        hasAppliedDemoMode = true
+
+        switch sessionType {
+        case .breathe:
+            startBreathingSession()
+        case .ambient:
+            startAmbientSession()
+        case .guided:
+            startGuidedSession()
+        }
+    }
+    #endif
 
     // MARK: - Start View
 
@@ -86,9 +114,18 @@ struct MainSessionView: View {
     let ambientVM = AmbientMusicViewModel()
     let guidedVM = GuidedMeditationViewModel()
 
+    #if DEBUG
+    MainSessionView(
+        breathingViewModel: breathingVM,
+        ambientViewModel: ambientVM,
+        guidedViewModel: guidedVM,
+        demoSessionType: nil
+    )
+    #else
     MainSessionView(
         breathingViewModel: breathingVM,
         ambientViewModel: ambientVM,
         guidedViewModel: guidedVM
     )
+    #endif
 }

@@ -8,11 +8,23 @@ import SwiftUI
 struct BreathingView: View {
     @State private var viewModel: BreathingViewModel
 
+    #if DEBUG
+    var demoAutoStart: Bool = false
+    @State private var hasAppliedDemoMode = false
+    #endif
+
     private let accentCyan = Color(red: 0.25, green: 0.95, blue: 0.88)
 
     init(viewModel: BreathingViewModel) {
         self.viewModel = viewModel
     }
+
+    #if DEBUG
+    init(viewModel: BreathingViewModel, demoAutoStart: Bool) {
+        self.viewModel = viewModel
+        self.demoAutoStart = demoAutoStart
+    }
+    #endif
 
     var body: some View {
         Group {
@@ -30,7 +42,22 @@ struct BreathingView: View {
             }
         }
         .animation(.easeInOut, value: viewModel.currentState)
+        #if DEBUG
+        .onAppear {
+            applyDemoModeIfNeeded()
+        }
+        #endif
     }
+
+    #if DEBUG
+    // MARK: - Demo Mode
+
+    private func applyDemoModeIfNeeded() {
+        guard !hasAppliedDemoMode, demoAutoStart else { return }
+        hasAppliedDemoMode = true
+        startLocalSession()
+    }
+    #endif
 
     // MARK: - Subviews
 

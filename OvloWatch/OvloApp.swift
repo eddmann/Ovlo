@@ -7,6 +7,10 @@ import SwiftUI
 struct OvloWatchApp: App {
     @State private var viewModel: BreathingViewModel
 
+    #if DEBUG
+    private let shouldAutoStart: Bool
+    #endif
+
     init() {
         let engine = BreathingEngine()
         #if os(watchOS)
@@ -18,11 +22,23 @@ struct OvloWatchApp: App {
             engine: engine,
             extendedRuntimeController: extendedRuntimeController
         )
+
+        #if DEBUG
+        if let demoMode = DemoMode.fromArguments() {
+            self.shouldAutoStart = DemoStateFactory.configure(for: demoMode)
+        } else {
+            self.shouldAutoStart = false
+        }
+        #endif
     }
 
     var body: some Scene {
         WindowGroup {
+            #if DEBUG
+            BreathingView(viewModel: viewModel, demoAutoStart: shouldAutoStart)
+            #else
             BreathingView(viewModel: viewModel)
+            #endif
         }
     }
 }

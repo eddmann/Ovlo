@@ -100,6 +100,10 @@
 		68JSON00006 /* meditations.json in Resources */ = {isa = PBXBuildFile; fileRef = 68JSON00005 /* meditations.json */; };
 		68JSON00008 /* chimes.json in Resources */ = {isa = PBXBuildFile; fileRef = 68JSON00007 /* chimes.json */; };
 		68JSON00010 /* AudioConfigLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68JSON00009 /* AudioConfigLoader.swift */; };
+		68DEMO00001 /* DemoMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DEMO00002 /* DemoMode.swift */; };
+		68DEMO00003 /* DemoStateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DEMO00004 /* DemoStateFactory.swift */; };
+		68WDEMO0001 /* DemoMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68WDEMO0002 /* DemoMode.swift */; };
+		68WDEMO0003 /* DemoStateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68WDEMO0004 /* DemoStateFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -245,6 +249,10 @@
 		68JSON00005 /* meditations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = meditations.json; sourceTree = "<group>"; };
 		68JSON00007 /* chimes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = chimes.json; sourceTree = "<group>"; };
 		68JSON00009 /* AudioConfigLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioConfigLoader.swift; sourceTree = "<group>"; };
+		68DEMO00002 /* DemoMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMode.swift; sourceTree = "<group>"; };
+		68DEMO00004 /* DemoStateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStateFactory.swift; sourceTree = "<group>"; };
+		68WDEMO0002 /* DemoMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMode.swift; sourceTree = "<group>"; };
+		68WDEMO0004 /* DemoStateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStateFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,6 +374,7 @@
 			children = (
 				68F00AD42ED8BCF100243E08 /* Info.plist */,
 				68EC6CAAAA00001 /* Domain */,
+				68DEMO00005 /* Utilities */,
 				68EC6CD02ED4B7D7009E99EE /* ViewModels */,
 				68EC6CD22ED4B7D7009E99EE /* Views */,
 				68EC6FAAAA00001 /* Resources */,
@@ -374,6 +383,15 @@
 				68EC6D2F2EFC0001009E99EE /* LaunchScreen.storyboard */,
 			);
 			path = OvloPhone;
+			sourceTree = "<group>";
+		};
+		68DEMO00005 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				68DEMO00002 /* DemoMode.swift */,
+				68DEMO00004 /* DemoStateFactory.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		68EC6CDE2ED4B7F2009E99EE /* Domain */ = {
@@ -422,6 +440,7 @@
 			children = (
 				68F00AD32ED8BCAB00243E08 /* Info.plist */,
 				68EC6CDE2ED4B7F2009E99EE /* Domain */,
+				68WDEMO0005 /* Utilities */,
 				68EC6CE02ED4B7F2009E99EE /* ViewModels */,
 				68EC6CE52ED4B7F2009E99EE /* Views */,
 				68WATCHRES00001 /* Resources */,
@@ -429,6 +448,15 @@
 				68EC6CE72ED4B7F2009E99EE /* OvloApp.swift */,
 			);
 			path = OvloWatch;
+			sourceTree = "<group>";
+		};
+		68WDEMO0005 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				68WDEMO0002 /* DemoMode.swift */,
+				68WDEMO0004 /* DemoStateFactory.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		68EC6CF72ED4B816009E99EE /* Models */ = {
@@ -797,6 +825,8 @@
 				E4C9091CCA3F2F59EDE7E03A /* ImportedAudioStore.swift in Sources */,
 				E90C08FC94A58B65680A6C14 /* MediaLibraryPickerView.swift in Sources */,
 				322BE83D0CAD0EAECDB02B76 /* DocumentPickerView.swift in Sources */,
+				68DEMO00001 /* DemoMode.swift in Sources */,
+				68DEMO00003 /* DemoStateFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,6 +848,8 @@
 				68EC6CF22ED4B7F2009E99EE /* OvloApp.swift in Sources */,
 				68EC6CWWW00001 /* SettingsManager.swift in Sources */,
 				68EC6CWWW00003 /* AudioController.swift in Sources */,
+				68WDEMO0001 /* DemoMode.swift in Sources */,
+				68WDEMO0003 /* DemoStateFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
